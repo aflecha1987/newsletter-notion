@@ -28,3 +28,12 @@ jobs:
           echo "notion_url=$NOTION_URL" >> $GITHUB_OUTPUT
           echo "### Notion Page Published" >> $GITHUB_STEP_SUMMARY
           echo "URL: $NOTION_URL" >> $GITHUB_STEP_SUMMARY
+          echo "$NOTION_URL" > notion_url.txt
+
+      - name: Guardar URL de Notion en el repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add notion_url.txt
+          git commit -m "chore: guardar URL de Notion [skip ci]" || echo "No changes"
+          git push
