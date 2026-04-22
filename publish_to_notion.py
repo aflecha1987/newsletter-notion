@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 """
 Publica la newsletter semanal de China Al Día en Notion.
-Uso: python publish_to_notion.py
+Uso: NOTION_TOKEN=<token> python publish_to_notion.py
 """
 
 import json
 import os
-import urllib.request
-import urllib.error
+import subprocess
 import sys
 from datetime import date
 
@@ -17,26 +16,30 @@ PARENT_PAGE_ID = os.environ.get("PARENT_PAGE_ID", "34ae9ac6c5268056bd3cfeddc772d
 if not NOTION_TOKEN:
     print("ERROR: define la variable de entorno NOTION_TOKEN antes de ejecutar.")
     sys.exit(1)
+
 API_BASE = "https://api.notion.com/v1"
 NOTION_VERSION = "2022-06-28"
-
-HEADERS = {
-    "Authorization": f"Bearer {NOTION_TOKEN}",
-    "Content-Type": "application/json",
-    "Notion-Version": NOTION_VERSION,
-}
 
 
 def notion_request(method, endpoint, data=None):
     url = f"{API_BASE}{endpoint}"
-    body = json.dumps(data).encode("utf-8") if data else None
-    req = urllib.request.Request(url, data=body, headers=HEADERS, method=method)
-    try:
-        with urllib.request.urlopen(req) as resp:
-            return json.loads(resp.read().decode("utf-8"))
-    except urllib.error.HTTPError as e:
-        print(f"Error HTTP {e.code}: {e.read().decode('utf-8')}")
+    cmd = [
+        "curl", "-s", "-X", method, url,
+        "-H", f"Authorization: Bearer {NOTION_TOKEN}",
+        "-H", "Content-Type: application/json",
+        "-H", f"Notion-Version: {NOTION_VERSION}",
+    ]
+    if data:
+        cmd += ["-d", json.dumps(data)]
+    result = subprocess.run(cmd, capture_output=True, text=True)
+    if result.returncode != 0:
+        print(f"Error curl: {result.stderr}")
         sys.exit(1)
+    resp = json.loads(result.stdout)
+    if resp.get("object") == "error":
+        print(f"Error Notion: {resp}")
+        sys.exit(1)
+    return resp
 
 
 def heading1(text):
@@ -47,11 +50,6 @@ def heading1(text):
 def heading2(text):
     return {"object": "block", "type": "heading_2",
             "heading_2": {"rich_text": [{"type": "text", "text": {"content": text}}]}}
-
-
-def heading3(text):
-    return {"object": "block", "type": "heading_3",
-            "heading_3": {"rich_text": [{"type": "text", "text": {"content": text}}]}}
 
 
 def paragraph(text, bold=False):
@@ -199,8 +197,7 @@ def build_newsletter_blocks():
 
 
 def create_notion_page():
-    today = date.today().isoformat()
-    title = f"🇨🇳 China Al Día — Semana 14-22 Abril 2026"
+    title = "🇨🇳 China Al Día — Semana 14-22 Abril 2026"
 
     payload = {
         "parent": {"type": "page_id", "page_id": PARENT_PAGE_ID},
