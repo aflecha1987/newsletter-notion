@@ -1,0 +1,23 @@
+name: Publicar Newsletter en Notion
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "newsletters/*.md"
+    branches:
+      - main
+      - claude/funny-brown-GXqEH
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Publicar en Notion
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          PARENT_PAGE_ID: ${{ secrets.PARENT_PAGE_ID }}
+        run: |
+          python3 publish_to_notion.py
