@@ -13,6 +13,10 @@ from datetime import date
 
 NOTION_TOKEN = os.environ.get("NOTION_TOKEN")
 PARENT_PAGE_ID = os.environ.get("PARENT_PAGE_ID", "34ae9ac6c5268056bd3cfeddc772dddc")
+
+if not NOTION_TOKEN:
+    print("ERROR: define la variable de entorno NOTION_TOKEN antes de ejecutar.")
+    sys.exit(1)
 API_BASE = "https://api.notion.com/v1"
 NOTION_VERSION = "2022-06-28"
 
