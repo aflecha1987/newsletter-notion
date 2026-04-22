@@ -8,6 +8,7 @@ on:
     branches:
       - main
       - claude/funny-brown-GXqEH
+      - claude/funny-brown-EUs55
 
 jobs:
   publish:
@@ -16,8 +17,14 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Publicar en Notion
+        id: publish
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           PARENT_PAGE_ID: ${{ secrets.PARENT_PAGE_ID }}
         run: |
-          python3 publish_to_notion.py
+          OUTPUT=$(python3 publish_to_notion.py)
+          echo "$OUTPUT"
+          NOTION_URL=$(echo "$OUTPUT" | grep "^URL:" | awk '{print $2}')
+          echo "notion_url=$NOTION_URL" >> $GITHUB_OUTPUT
+          echo "### Notion Page Published" >> $GITHUB_STEP_SUMMARY
+          echo "URL: $NOTION_URL" >> $GITHUB_STEP_SUMMARY
