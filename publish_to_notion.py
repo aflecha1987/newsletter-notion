@@ -6,8 +6,9 @@ Uso: NOTION_TOKEN=<token> python publish_to_notion.py
 
 import json
 import os
-import subprocess
 import sys
+import urllib.request
+import urllib.error
 from datetime import date
 
 NOTION_TOKEN = os.environ.get("NOTION_TOKEN")
@@ -23,24 +24,24 @@ NOTION_VERSION = "2022-06-28"
 
 def notion_request(method, endpoint, data=None):
     url = f"{API_BASE}{endpoint}"
-    cmd = [
-        "curl", "-s", "-X", method, url,
-        "-H", f"Authorization: Bearer {NOTION_TOKEN}",
-        "-H", "Content-Type: application/json",
-        "-H", f"Notion-Version: {NOTION_VERSION}",
-    ]
-    if data:
-        cmd += ["-d", json.dumps(data, ensure_ascii=False)]
-    result = subprocess.run(cmd, capture_output=True, text=True)
-    if result.returncode != 0:
-        print(f"Error curl: {result.stderr}")
+    body = json.dumps(data, ensure_ascii=False).encode("utf-8") if data else None
+    req = urllib.request.Request(url, data=body, method=method)
+    req.add_header("Authorization", f"Bearer {NOTION_TOKEN}")
+    req.add_header("Content-Type", "application/json")
+    req.add_header("Notion-Version", NOTION_VERSION)
+    try:
+        with urllib.request.urlopen(req) as response:
+            raw = response.read().decode("utf-8")
+    except urllib.error.HTTPError as e:
+        raw = e.read().decode("utf-8")
+        print(f"HTTP {e.code}: {raw}")
         sys.exit(1)
-    if not result.stdout.strip():
-        print("Error: respuesta vacia del servidor")
+    except urllib.error.URLError as e:
+        print(f"Error de red: {e.reason}")
         sys.exit(1)
-    resp = json.loads(result.stdout)
+    resp = json.loads(raw)
     if resp.get("object") == "error":
-        print(f"Error Notion API: {resp.get('message')}")
+        print(f"Error Notion API ({resp.get('status')}): {resp.get('message')}")
         sys.exit(1)
     return resp
 
