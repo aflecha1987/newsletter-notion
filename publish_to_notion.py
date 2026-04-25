@@ -83,6 +83,51 @@ def quote(text):
 
 NOTICIAS = [
     {
+        "emoji": "🤖",
+        "titulo": "DeepSeek V4: el modelo de IA más eficiente del mundo open-source",
+        "cuerpo": (
+            "El 24 de abril, DeepSeek presentó su familia de modelos V4. DeepSeek-V4-Pro cuenta con "
+            "1,6 billones de parámetros totales pero activa únicamente 49.000 millones por inferencia "
+            "—una arquitectura de mezcla de expertos que lo hace enormemente eficiente—. Necesita solo "
+            "el 27% de las operaciones de cómputo que requería su predecesor V3.2, y ocupa el 10% del "
+            "caché KV. Según TechCrunch, el nuevo modelo 'cierra la brecha' con los modelos de frontera "
+            "de OpenAI y Google, superando a GPT-5.2 en varios benchmarks de razonamiento. La versión "
+            "V4-Flash es aún más ligera. Disponible vía API desde el mismo día de su lanzamiento."
+        ),
+        "fuente_label": "TechCrunch — DeepSeek previews new AI model that 'closes the gap'",
+        "fuente_url": "https://techcrunch.com/2026/04/24/deepseek-previews-new-ai-model-that-closes-the-gap-with-frontier-models/",
+    },
+    {
+        "emoji": "🦾",
+        "titulo": "X Square Robot: Serie B cerrada y pruebas en hogares reales en mayo",
+        "cuerpo": (
+            "La startup china de robótica X Square, fundada en 2023, cerró su ronda Serie B esta semana "
+            "y anunció pruebas de su nueva generación de robots en hogares reales para finales de mayo. "
+            "Conocida por el robot Quanta X2 con IA propia, ya comercializa un servicio de limpieza a "
+            "domicilio combinando el robot con supervisión humana. En paralelo, la Corporación de la Red "
+            "Eléctrica del Estado (State Grid) presupuestó 6.800 millones de yuanes (≈ 1.000 millones de "
+            "dólares) para adquirir robots habilitados con IA solo en 2026, acelerando la automatización "
+            "de la infraestructura energética nacional."
+        ),
+        "fuente_label": "Caixin Global — Tech Brief April 22: X Square Robot targets home trials by May",
+        "fuente_url": "https://www.caixinglobal.com/2026-04-22/tech-brief-april-22-x-square-robot-raises-new-funds-targets-home-trials-by-may-102436757.html",
+    },
+    {
+        "emoji": "🌍",
+        "titulo": "China elimina aranceles a 53 países africanos desde el 1 de mayo de 2026",
+        "cuerpo": (
+            "A partir del 1 de mayo de 2026, China implementará el régimen de arancel cero para las "
+            "importaciones procedentes de 53 países africanos —la apertura comercial unilateral más "
+            "grande hacia África en la historia moderna—. Adicionalmente, Kenya firmó un acuerdo "
+            "histórico por el que el 98% de sus exportaciones (té, café, aguacate, macadamia) tendrán "
+            "acceso libre de aranceles al mercado chino. La medida, anunciada por Xi Jinping en el "
+            "Foro de Cooperación China-África de 2024, consolida la posición de China como primer "
+            "socio comercial del continente africano."
+        ),
+        "fuente_label": "Democrata.es — China eliminará aranceles a 53 países africanos",
+        "fuente_url": "https://www.democrata.es/internacional/china-eliminara-todos-los-aranceles-a-importaciones-de-53-paises-africanos-desde-mayo-de-2026/",
+    },
+    {
         "emoji": "🏃",
         "titulo": "Robot humanoide bate el récord mundial de la media maratón en Pekín",
         "cuerpo": (
@@ -144,19 +189,19 @@ NOTICIAS = [
     },
     {
         "emoji": "🚀",
-        "titulo": "Chang'e-7 llega a la base de lanzamiento: China se prepara para explorar el polo sur lunar",
+        "titulo": "Chang'e-7 y Guowang: China acelera su programa espacial en todos los frentes",
         "cuerpo": (
-            "El 10 de abril todos los módulos de la misión Chang'e-7 llegaron sanos y salvos a la Base "
-            "Espacial de Wenchang para iniciar las pruebas previas al lanzamiento, previsto para agosto "
-            "de 2026. La misión incluye un orbitador, un módulo de aterrizaje, un rover y una sonda "
-            "mini-saltadora diseñada para explorar cráteres en sombra permanente del polo sur lunar, "
-            "donde se sospecha la existencia de agua en forma de hielo. Además, la Agencia Espacial "
-            "Nacional China (CNSA) confirmó misiones intensivas en 2026: el acercamiento de Tianwen-2 "
-            "a su asteroide objetivo, las misiones tripuladas Shenzhou-23 y ensayos del cohete reutilizable "
+            "El 10 de abril todos los módulos de Chang'e-7 llegaron a la Base Espacial de Wenchang para "
+            "iniciar las pruebas previas al lanzamiento previsto en agosto de 2026. La misión incluye "
+            "un orbitador, módulo de aterrizaje, rover y una sonda mini-saltadora diseñada para explorar "
+            "cráteres en sombra permanente del polo sur lunar, donde se sospecha agua en forma de hielo. "
+            "En paralelo, la constelación Guowang —el 'Starlink chino'— alcanzó los 168 satélites en "
+            "órbita tras su lanzamiento de grupo 20 en marzo, con planes de llegar a 310 este año. "
+            "La CNSA también confirmó las misiones Shenzhou-23 y ensayos del cohete reutilizable "
             "Larga Marcha 10, pieza clave del programa lunar tripulado antes de 2030."
         ),
-        "fuente_label": "Global Times — China unveils major 2026 space missions",
-        "fuente_url": "https://www.globaltimes.cn/page/202604/1359177.shtml",
+        "fuente_label": "NASASpaceFlight — China roundup April 2026",
+        "fuente_url": "https://www.nasaspaceflight.com/2026/04/china-roundup-202604/",
     },
     {
         "emoji": "📈",
@@ -288,7 +333,7 @@ def build_blocks():
 
 
 def create_notion_page():
-    title = "China Al Dia — Semana 14-22 Abril 2026"
+    title = "China Al Dia — Semana 14-25 Abril 2026"
     payload = {
         "parent": {"type": "page_id", "page_id": PARENT_PAGE_ID},
         "icon": {"type": "emoji", "emoji": "🇨🇳"},
