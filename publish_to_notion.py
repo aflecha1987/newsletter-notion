@@ -83,6 +83,150 @@ def quote(text):
 
 NOTICIAS = [
     {
+        "emoji": "🇺🇳",
+        "titulo": "China preside el Consejo de Seguridad de la ONU: diplomacia activa por la paz global",
+        "cuerpo": (
+            "A partir del 1 de mayo, China asume la presidencia rotatoria del Consejo de Seguridad de "
+            "la ONU. Pekín ha anunciado que aprovechará este liderazgo para impulsar soluciones "
+            "políticas a los conflictos activos, reforzar la solidaridad multilateral y defender el "
+            "derecho internacional. El canciller Wang Yi ha sostenido más de 20 llamadas con ministros "
+            "de Exteriores de Oriente Medio en las últimas semanas para reducir tensiones. Además, "
+            "Trump tiene previsto viajar a China a mediados de mayo, en lo que sería un encuentro de "
+            "alto valor estratégico para ambas potencias."
+        ),
+        "fuente_label": "China Embassy Argentina — Conferencia de Prensa Lin Jian 30 de abril",
+        "fuente_url": "https://ar.china-embassy.gov.cn/esp/fyrth/202605/t20260501_11904230.htm",
+    },
+    {
+        "emoji": "🌍",
+        "titulo": "Arancel cero para 53 países africanos: China abre su mercado en un hito histórico",
+        "cuerpo": (
+            "Desde el 1 de mayo de 2026, China aplica arancel cero a todos los productos de los 53 "
+            "países africanos con los que mantiene relaciones diplomáticas, convirtiéndose en la primera "
+            "gran economía del mundo en ofrecer acceso libre de aranceles de forma unilateral y con "
+            "cobertura plena a toda África. La medida se extenderá hasta 2028. El comercio bilateral "
+            "China-África alcanzó un récord histórico de 348.000 millones de dólares en 2025, y en los "
+            "primeros días ya se registró un envío de 24 toneladas de manzanas africanas con arancel cero."
+        ),
+        "fuente_label": "Xinhua Español — China concederá tratamiento de arancel cero a toda África",
+        "fuente_url": "http://spanish.xinhuanet.com/20260429/9adcc0263e144ef994a1257bff362d71/c.html",
+    },
+    {
+        "emoji": "📈",
+        "titulo": "Economía china: crecimiento del 5% y meta estable para 2026",
+        "cuerpo": (
+            "La economía china inició 2026 con resultados por encima de lo previsto. China fija su "
+            "objetivo de crecimiento del PIB en entre el 4,5% y el 5% para 2026, tras haber alcanzado "
+            "exactamente el 5% en 2025. Los indicadores del primer trimestre superaron las expectativas, "
+            "con la manufactura de alta tecnología creciendo al 12,5% interanual. El Gobierno apuesta "
+            "por la certidumbre económica frente a la volatilidad geopolítica global, consolidando China "
+            "como el motor más estable de la economía mundial."
+        ),
+        "fuente_label": "Milenio — China acelera su liderazgo económico y tecnológico rumbo a 2026",
+        "fuente_url": "https://www.milenio.com/internacional/china-acelera-liderazgo-economico-tecnologico-rumbo-2026",
+    },
+    {
+        "emoji": "🏥",
+        "titulo": "Cirugía ocular a distancia: robots e IA llevan la medicina de vanguardia a zonas remotas",
+        "cuerpo": (
+            "El Centro Oftálmico Zhongshan ha presentado un robot quirúrgico de control remoto capaz "
+            "de operar una retina a miles de kilómetros de distancia entre el médico y el paciente, "
+            "conectados únicamente vía 5G. El sistema reduce los micromovimientos del pulso humano en "
+            "hasta un 30%, mejorando la precisión. En paralelo, se han desplegado hospitales móviles "
+            "con IA para diagnóstico ocular y chatbots de atención primaria. China integra así IA y "
+            "robótica para cerrar la brecha de acceso a la salud especializada en zonas rurales."
+        ),
+        "fuente_label": "La Jornada — China: IA y robótica amplían medicina ocular",
+        "fuente_url": "https://www.jornada.com.mx/2026/05/04/economia/017n1eco",
+    },
+    {
+        "emoji": "⚡",
+        "titulo": "8.500 robots con IA para vigilar la red eléctrica de China",
+        "cuerpo": (
+            "La empresa estatal State Grid desplegará 8.500 robots con inteligencia artificial entre "
+            "2026 y 2030 para patrullar subestaciones y revisar líneas de transmisión en toda China. "
+            "El plan forma parte de una inversión de 4 billones de yuanes (~500.000 millones de euros) "
+            "para modernizar la red eléctrica, integrando redes inteligentes, sensores y análisis de "
+            "datos en tiempo real. La flota incluirá unos 5.000 robots cuadrúpedos para inspecciones "
+            "en campo, reduciendo riesgos laborales y aumentando la fiabilidad del suministro."
+        ),
+        "fuente_label": "HW Libre — China da el gran salto con 8.500 robots con IA para su red eléctrica",
+        "fuente_url": "https://www.hwlibre.com/china-da-el-gran-salto-con-8-500-robots-con-ia-para-su-red-electrica/",
+    },
+    {
+        "emoji": "🏭",
+        "titulo": "La fábrica del futuro ya existe en China: plantas oscuras, camiones autónomos e IA",
+        "cuerpo": (
+            "China está redefiniendo la manufactura industrial global. Las llamadas 'fábricas oscuras' "
+            "—instalaciones que operan sin luz porque no hay personas dentro— se multiplican en "
+            "electrónica, automoción y componentes industriales. La IA coordina miles de decisiones "
+            "por minuto: rutas logísticas, control de calidad, mantenimiento predictivo. Los camiones "
+            "autónomos ya circulan en zonas industriales conectadas a sistemas centralizados. Este "
+            "modelo supone un salto cualitativo en productividad que redefine la competitividad global "
+            "de la manufactura china."
+        ),
+        "fuente_label": "Gizmodo ES — El futuro industrial de China ya no depende de cuántas personas trabajan",
+        "fuente_url": "https://es.gizmodo.com/futuro-industrial-de-china-ya-no-depende-de-cuantas-personas-trabajan-sino-de-cuantos-robots-coordina-su-ia-asi-quiere-mantener-su-dominio-con-plantas-oscuras-camiones-autonomos-algoritmos-que-2000206715",
+    },
+    {
+        "emoji": "☀️",
+        "titulo": "El parque solar más grande del mundo convierte un desierto chino en oasis",
+        "cuerpo": (
+            "China está construyendo en el desierto de Talatan, en la meseta tibetana, el parque solar "
+            "más grande del mundo. El proyecto combina energía solar, eólica e hidroeléctrica en un "
+            "sistema integrado que además transforma el ecosistema: la sombra de los paneles retiene "
+            "humedad, favorece el crecimiento de vegetación y está revirtiendo la desertificación. "
+            "En 2026, la capacidad solar instalada de China superará por primera vez a la del carbón, "
+            "alcanzando los 300 GW de nueva capacidad en el año."
+        ),
+        "fuente_label": "La República Perú — China construye el parque solar más grande del mundo",
+        "fuente_url": "https://larepublica.pe/mundo/2026/04/29/china-construye-el-parque-solar-mas-grande-del-mundo-y-convierte-un-desierto-en-un-oasis-lleno-de-vida-1535840",
+    },
+    {
+        "emoji": "🔋",
+        "titulo": "Hidrógeno verde: China inaugura ducto de 400 km para distribuir energía limpia",
+        "cuerpo": (
+            "China ha puesto en operación un ducto de hidrógeno verde de aproximadamente 400 kilómetros "
+            "que conecta Mongolia Interior —una de las grandes regiones de energías renovables— con "
+            "Pekín. El hidrógeno se produce a partir de excedentes de energía eólica y solar, "
+            "transformándose en un vector energético limpio que puede transportarse y almacenarse. "
+            "El proyecto es pionero a escala mundial y convierte a China en líder en infraestructura "
+            "de hidrógeno verde, sector clave para la descarbonización industrial global."
+        ),
+        "fuente_label": "Good New Energy (Enagás) — China y el hidrógeno verde en 2026",
+        "fuente_url": "https://goodnewenergy.enagas.es/innovadores/china-hidrogeno-verde-analisis-2026/",
+    },
+    {
+        "emoji": "🩺",
+        "titulo": "Quioscos de diagnóstico con IA y medicina tradicional china en el metro",
+        "cuerpo": (
+            "China ha comenzado a instalar en estaciones de metro y espacios públicos quioscos de "
+            "diagnóstico asistido por IA que fusionan tecnología biomédica moderna con principios de "
+            "la Medicina Tradicional China. Los dispositivos miden presión arterial, frecuencia "
+            "cardíaca, saturación de oxígeno y temperatura; la IA aplica además criterios tradicionales: "
+            "análisis facial, observación de la lengua y lectura digital del pulso. La iniciativa "
+            "forma parte de la estrategia de salud digital nacional para ampliar el acceso a la "
+            "medicina preventiva de forma masiva."
+        ),
+        "fuente_label": "Mundo Global — China avanza hacia un modelo de salud digital",
+        "fuente_url": "https://mundoglobal.org/china-avanza-hacia-un-modelo-de-salud-digital-que-une-ia-y-medicina-tradicional-china/",
+    },
+    {
+        "emoji": "❤️",
+        "titulo": "China aspira a que sus ciudadanos vivan hasta los 80 años",
+        "cuerpo": (
+            "El XV Plan Quinquenal fija como meta elevar la esperanza de vida media en China hasta los "
+            "80 años para 2030, partiendo de los 79 actuales. Para lograrlo, China refuerza el que ya "
+            "es el mayor sistema sanitario del mundo: más de un millón de instituciones médicas, casi "
+            "16 millones de profesionales sanitarios y servicios de salud accesibles en un radio de "
+            "15 minutos en todo el territorio. El plan incluye la ampliación de servicios de "
+            "rehabilitación y cuidados paliativos, y el impulso a los seguros de cuidados de larga "
+            "duración."
+        ),
+        "fuente_label": "People's Daily Español — China implementa política de bienestar 2026",
+        "fuente_url": "http://spanish.peopledaily.com.cn/n3/2026/0504/c31621-20452692.html",
+    },
+    {
         "emoji": "🏃",
         "titulo": "Robot humanoide bate el récord mundial de la media maratón en Pekín",
         "cuerpo": (
@@ -270,7 +414,7 @@ NOTICIAS = [
 
 
 def build_blocks():
-    today = date.today().strftime("%d de abril de %Y")
+    today = date.today().strftime("%d de mayo de %Y")
     blocks = [
         callout(f"Newsletter semanal · China Al Dia · {today}", "🇨🇳"),
         p("Recopilacion de las noticias mas relevantes de China esta semana: tecnologia, economia, espacio y sociedad.", bold=False),
@@ -288,7 +432,7 @@ def build_blocks():
 
 
 def create_notion_page():
-    title = "China Al Dia — Semana 14-22 Abril 2026"
+    title = "China Al Dia — Semana 28 Abril - 5 Mayo 2026"
     payload = {
         "parent": {"type": "page_id", "page_id": PARENT_PAGE_ID},
         "icon": {"type": "emoji", "emoji": "🇨🇳"},
