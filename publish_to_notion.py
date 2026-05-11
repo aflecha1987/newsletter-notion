@@ -83,6 +83,139 @@ def quote(text):
 
 NOTICIAS = [
     {
+        "emoji": "🤖",
+        "titulo": "China convierte los robots con IA en el núcleo de su estrategia nacional",
+        "cuerpo": (
+            "La Federación Internacional de Robótica (IFR) publicó el 5 de mayo un informe confirmando "
+            "que China ha situado los robots impulsados por IA en el corazón de su 15.º Plan Quinquenal "
+            "(2026-2030). El plan menciona la IA más de 50 veces e incluye un ambicioso 'Plan de Acción "
+            "IA+' para integrar la tecnología en toda la economía. China ya tiene un stock operativo de "
+            "2 millones de robots industriales, 4,5 veces más que Japón (segundo del mundo), y recibe "
+            "el 54% de los robots industriales instalados en todo el planeta. El peso de los proveedores "
+            "locales en instalaciones nacionales pasó del 30% en 2020 al 57% en 2024."
+        ),
+        "fuente_label": "IFR — China Makes AI-powered Robots Core of National Strategy",
+        "fuente_url": "https://ifr.org/ifr-press-releases/news/china-makes-ai-powered-robots-core-of-national-strategy",
+    },
+    {
+        "emoji": "🎉",
+        "titulo": "Primero de Mayo: récord histórico de turismo y consumo en China",
+        "cuerpo": (
+            "Las vacaciones del 1 de mayo en China (1-5 de mayo) batieron todos los registros. Los ingresos "
+            "por consumo crecieron un 14,3% interanual. Se registraron 325 millones de viajes domésticos "
+            "(+3,6%) y el gasto turístico alcanzó los 185.490 millones de yuanes (~27.080 millones de "
+            "dólares). Pekín recibió más de 18 millones de visitantes. Los sectores más dinámicos: "
+            "servicios culturales (+42,3%), deportivos (+44,1%) y restaurantes de bares y salones de té "
+            "(+51,5%). Con más de 1.520 millones de viajes interregionales, China demostró la fortaleza "
+            "de su mercado interno."
+        ),
+        "fuente_label": "Spanish.china.org.cn — Ingresos por consumo durante vacaciones de mayo aumentan 14,3%",
+        "fuente_url": "http://spanish.china.org.cn/txt/2026-05/07/content_118480485.htm",
+    },
+    {
+        "emoji": "🚗",
+        "titulo": "La guerra de precios de VE chinos evoluciona a carrera armamentista de IA",
+        "cuerpo": (
+            "La competencia en el sector del automóvil eléctrico chino ha entrado en una nueva fase: "
+            "ya no es solo una guerra de precios, sino una carrera de integración de IA. Más de 50 marcas "
+            "de coches utilizan el modelo Doubao de ByteDance, presente en 145 modelos y más de 7 millones "
+            "de vehículos. Alibaba anunció que su modelo Qwen se integrará en BYD y la joint venture de "
+            "Volkswagen, permitiendo reservar hoteles, pedir comida o comprar entradas por voz. El sector "
+            "libra batallas por chips de automoción y sistemas de asistencia a la conducción más avanzados, "
+            "convirtiendo cada lanzamiento en un escaparate de IA aplicada al mundo real."
+        ),
+        "fuente_label": "CNBC — China's EV price war turns into AI arms race beyond cheaper cars",
+        "fuente_url": "https://www.cnbc.com/2026/05/01/china-ev-ai-features-price-war-bytedance-alibaba-doubao-volcano-engine.html",
+    },
+    {
+        "emoji": "🏆",
+        "titulo": "TIME sitúa tres empresas chinas entre las 10 IA más influyentes del mundo en 2026",
+        "cuerpo": (
+            "La revista TIME publicó su lista de las 10 empresas de IA más influyentes de 2026, en la "
+            "que tres compañías chinas consiguieron entrar. Los reconocimientos incluyen aplicaciones de "
+            "IA orientadas al consumidor y grandes modelos de lenguaje de código abierto desarrollados "
+            "de manera independiente. El avance refuerza el peso creciente de China en la vanguardia de "
+            "la inteligencia artificial global, tanto en modelos de fundación como en aplicaciones de "
+            "consumo masivo, donde el país acumula ya más de 600 millones de usuarios de IA generativa."
+        ),
+        "fuente_label": "AN Bariloche — El hilo de la IA china no se corta por lo más delgado",
+        "fuente_url": "https://www.anbariloche.com.ar/noticias/2026/05/10/105597-el-hilo-de-la-ia-china-no-se-corta-por-lo-mas-delgado",
+    },
+    {
+        "emoji": "⚖️",
+        "titulo": "Tribunal chino falla contra empresa que despidió a un trabajador por IA",
+        "cuerpo": (
+            "En un hito legal de gran resonancia, el Tribunal Popular Intermedio de Hangzhou —el 'Silicon "
+            "Valley chino'— falló en contra de una empresa que había sustituido a un empleado por "
+            "inteligencia artificial. El tribunal consideró que, aunque las empresas pueden ganar "
+            "eficiencia con la IA, no pueden descargar el coste de esa transición sobre los trabajadores. "
+            "La sentencia marca un precedente importante: China quiere liderar el desarrollo tecnológico "
+            "pero también proteger los derechos laborales en la era de la automatización, enviando una "
+            "señal clara al ecosistema empresarial sobre los límites legales del reemplazo por IA."
+        ),
+        "fuente_label": "Xinhua — Ministerio de Relaciones Exteriores, conferencia de prensa 8 mayo 2026",
+        "fuente_url": "https://www.fmprc.gov.cn/esp/xwfw/lxjzzdh/202605/t20260510_11907959.html",
+    },
+    {
+        "emoji": "🔋",
+        "titulo": "CATL presenta batería de 1.500 km y BYD alcanza exportaciones récord",
+        "cuerpo": (
+            "En Auto China 2026, CATL presentó la Batería Qilin Condensada de estado semisólido: densidad "
+            "energética capaz de proporcionar hasta 1.500 kilómetros de autonomía en una sola carga, y la "
+            "Shenxing de tercera generación que recupera cientos de kilómetros en solo seis minutos de carga. "
+            "En paralelo, BYD alcanzó un nuevo récord de exportaciones en abril 2026, con el objetivo de "
+            "vender 1,5 millones de unidades en el exterior este año, medio millón más que en 2025. Los "
+            "coches eléctricos e híbridos chinos ya han reducido la demanda nacional de petróleo en más de "
+            "1 millón de barriles por día."
+        ),
+        "fuente_label": "CNN Business — What oil crisis? China's EVs are ready to dominate the 21st century",
+        "fuente_url": "https://www.cnn.com/2026/05/02/business/beijing-auto-show-china-evs-intl-hnk",
+    },
+    {
+        "emoji": "🏛️",
+        "titulo": "28.ª Expo Internacional de Alta Tecnología de Beijing: robots, drones y coches voladores",
+        "cuerpo": (
+            "Del 8 al 10 de mayo se celebró en el Centro Nacional de Convenciones de Pekín la 28.ª edición "
+            "de la CHITEC, con más de 800 expositores nacionales e internacionales y 50.000 m² de exposición. "
+            "Entre los protagonistas: el RoboBus autónomo de nivel L4, sistemas de vuelo simulado de drones, "
+            "robots marinos, robots jugadores de fútbol, vehículos de nueva energía, vehículos voladores y "
+            "manos biónicas. La exposición reflejó la velocidad con la que China integra la IA en objetos "
+            "físicos del mundo cotidiano, desde el transporte urbano hasta la atención sanitaria."
+        ),
+        "fuente_label": "Manila Times — The 28th China Beijing International High-Tech Expo Opens",
+        "fuente_url": "https://www.manilatimes.net/2026/05/09/tmt-newswire/pr-newswire/the-28th-china-beijing-international-high-tech-expo-opens/2339731/amp",
+    },
+    {
+        "emoji": "🌐",
+        "titulo": "BEYOND Expo 2026 en Macao: la IA da el salto del mundo digital al mundo físico",
+        "cuerpo": (
+            "La mayor feria tecnológica de Asia, BEYOND Expo 2026, celebrada en El Venetian Macao del 27 "
+            "al 30 de mayo, adoptó el tema oficial 'IA: De lo Digital a lo Físico', marcando el paso de "
+            "los modelos de lenguaje al mundo tangible. Más de 30.000 asistentes esperados, con programas "
+            "dedicados a IA humanoides, conducción autónoma, wearables inteligentes y robótica incorporada. "
+            "El primer ponente confirmado es Deepu Talla, vicepresidente de Robótica e IA de NVIDIA. "
+            "NVIDIA también presentará su ecosistema de startups con 40 empresas del programa NVIDIA Inception."
+        ),
+        "fuente_label": "Yanko Design — BEYOND Expo 2026: Asia's Biggest Tech Event",
+        "fuente_url": "https://www.yankodesign.com/2026/05/10/beyond-expo-2026-asias-biggest-tech-event-just-told-the-world-that-ai-software-was-only-the-warm-up/",
+    },
+    {
+        "emoji": "🚀",
+        "titulo": "2026: el año del despegue de la industria espacial comercial china",
+        "cuerpo": (
+            "El sector espacial comercial chino vive su año de 'verificación tecnológica'. El foco está "
+            "en el dominio de los cohetes reutilizables de bajo coste, con varias empresas construyendo "
+            "líneas de producción en masa de satélites. En el 15.º Plan Quinquenal, China se fijó como "
+            "objetivo convertirse en gran potencia espacial, con planes de construir una estación lunar "
+            "de investigación antes de 2030 y desarrollar un cohete pesado reutilizable. El presupuesto "
+            "en ciencia y tecnología espacial creció un 7,1% y varios municipios anunciaron planes para "
+            "impulsar la industria espacial comercial local con foco en la reducción de costes."
+        ),
+        "fuente_label": "36kr English — 2026: The Eve of China's Commercial Space Takeoff",
+        "fuente_url": "https://eu.36kr.com/en/p/3699678980272899",
+    },
+    # ---- Semana anterior (14-22 Abril 2026) ----
+    {
         "emoji": "🏃",
         "titulo": "Robot humanoide bate el récord mundial de la media maratón en Pekín",
         "cuerpo": (
@@ -270,7 +403,7 @@ NOTICIAS = [
 
 
 def build_blocks():
-    today = date.today().strftime("%d de abril de %Y")
+    today = date.today().strftime("%-d de mayo de %Y")
     blocks = [
         callout(f"Newsletter semanal · China Al Dia · {today}", "🇨🇳"),
         p("Recopilacion de las noticias mas relevantes de China esta semana: tecnologia, economia, espacio y sociedad.", bold=False),
@@ -288,7 +421,7 @@ def build_blocks():
 
 
 def create_notion_page():
-    title = "China Al Dia — Semana 14-22 Abril 2026"
+    title = "China Al Dia — Semana 4-11 Mayo 2026"
     payload = {
         "parent": {"type": "page_id", "page_id": PARENT_PAGE_ID},
         "icon": {"type": "emoji", "emoji": "🇨🇳"},
