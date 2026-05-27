@@ -8,6 +8,7 @@ on:
     branches:
       - main
       - claude/funny-brown-GXqEH
+      - claude/funny-brown-mBQKt
 
 jobs:
   publish:
