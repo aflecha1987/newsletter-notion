@@ -83,6 +83,129 @@ def quote(text):
 
 NOTICIAS = [
     {
+        "emoji": "🚀",
+        "titulo": "China lanza la Shenzhou-23: primer astronauta que pasará un año en órbita",
+        "cuerpo": (
+            "El 24 de mayo, China lanzó con éxito la nave tripulada Shenzhou-23 desde el Centro de "
+            "Lanzamiento de Satélites de Jiuquan, en el desierto de Gobi. La misión es comandada por "
+            "Zhu Yangzhu e incluye a Lai Ka-ying, primera astronauta procedente de Hong Kong y doctora "
+            "en informática forense. El hito más destacado: uno de los astronautas permanecerá 365 días "
+            "en órbita, un récord para China que permitirá estudiar en profundidad los efectos de la "
+            "microgravedad, información clave de cara a las misiones lunares tripuladas previstas para "
+            "antes de 2030."
+        ),
+        "fuente_label": "Eureka / Daniel Marín — Despega la Shenzhou-23",
+        "fuente_url": "https://danielmarin.naukas.com/2026/05/25/despega-la-shenzhou-23-con-el-primer-astronauta-chino-que-pasara-un-ano-en-el-espacio/",
+    },
+    {
+        "emoji": "⚡",
+        "titulo": "La ventaja secreta de China en la carrera IA: energía eléctrica barata y abundante",
+        "cuerpo": (
+            "Mientras Silicon Valley compite por megavatios, China ya resolvió el problema. El país "
+            "genera más del doble de electricidad que Estados Unidos, con una red subvencionada que "
+            "permite a sus centros de datos pagar menos de la mitad por kilovatio-hora que sus "
+            "competidores americanos. Pekín incrementa estas subvenciones energéticas hasta en un 50% "
+            "para los grandes centros de datos, mientras su capacidad de racks crece al 30% anual. "
+            "Los modelos de IA chinos pueden entrenar y ejecutar inferencias a una fracción del coste "
+            "occidental, convirtiendo la energía en el arma competitiva más poderosa de China en "
+            "la guerra tecnológica del siglo XXI."
+        ),
+        "fuente_label": "Al Jazeera — China's secret weapon in AI race: cheap energy",
+        "fuente_url": "https://www.aljazeera.com/economy/2026/5/28/chinas-secret-weapon-in-ai-race-with-us-lots-of-cheap-energy",
+    },
+    {
+        "emoji": "💎",
+        "titulo": "Diamantes de laboratorio chinos: el inesperado ganador del boom de la IA",
+        "cuerpo": (
+            "La inteligencia artificial abre un mercado totalmente nuevo para los diamantes sintéticos "
+            "fabricados en China. Estos materiales están siendo adoptados como disipadores térmicos de "
+            "última generación en chips de alta potencia para IA y centros de datos. Los diamantes "
+            "conducen el calor hasta cinco veces mejor que el cobre, permitiendo diseños de "
+            "semiconductores más densos y potentes. China, que ya domina la producción global de "
+            "diamantes de laboratorio con más del 60% del mercado, está posicionada para convertir "
+            "esta industria en un eslabón clave de su cadena de suministro tecnológico."
+        ),
+        "fuente_label": "Bloomberg — China's Lab-Grown Diamonds Emerge as Unlikely Winner in AI Boom",
+        "fuente_url": "https://www.bloomberg.com/news/articles/2026-06-02/china-s-lab-grown-diamonds-emerge-as-unlikely-winner-in-ai-boom",
+    },
+    {
+        "emoji": "🔐",
+        "titulo": "Nueva ley: algoritmos e IA pasan a ser secretos comerciales en China",
+        "cuerpo": (
+            "El 1 de junio entró en vigor en China la nueva normativa de protección de secretos "
+            "comerciales, que por primera vez incluye explícitamente algoritmos, conjuntos de datos de "
+            "entrenamiento y códigos fuente de modelos de IA dentro de la categoría de secreto "
+            "comercial. Cualquier base de datos usada para entrenar modelos de lenguaje o código fuente "
+            "de IA queda protegido frente a transferencia no autorizada. La ley regula el trabajo a "
+            "distancia y la colaboración transfronteriza con medidas de confidencialidad específicas. "
+            "El objetivo: evitar que el talento local transfiera conocimientos estratégicos al exterior."
+        ),
+        "fuente_label": "China.org.cn — Nueva normativa sobre protección de secretos comerciales",
+        "fuente_url": "http://spanish.china.org.cn/txt/2026-06/01/content_118526701.htm",
+    },
+    {
+        "emoji": "🤝",
+        "titulo": "China y EE.UU. sellan un acuerdo histórico de reducción arancelaria",
+        "cuerpo": (
+            "Tras la cumbre bilateral celebrada en Pekín a mediados de mayo, China y Estados Unidos "
+            "anunciaron un entendimiento comercial que incluye la reducción de aranceles sobre "
+            "productos relevantes, la creación de un nuevo Consejo de Comercio e Inversiones como "
+            "canal permanente de diálogo y acuerdos sobre compra de aeronaves e intercambio de "
+            "componentes. El acuerdo llega después de más de dos años de escalada arancelaria y "
+            "supone el primer descongelamiento estructural de las relaciones comerciales, abriendo "
+            "la puerta a ampliar el comercio bilateral en sectores como la agricultura, energía "
+            "y tecnología civil."
+        ),
+        "fuente_label": "El Informador MX — China y EU sorprenden con acuerdo sobre aranceles",
+        "fuente_url": "https://www.informador.mx/economia/china-y-eu-sorprenden-con-acuerdo-sobre-aranceles-buscan-impulsar-comercio-bilateral-20260516-0072.html",
+    },
+    {
+        "emoji": "💾",
+        "titulo": "Mercado global de semiconductores camino al billón y medio de dólares en 2026",
+        "cuerpo": (
+            "Las estadísticas mundiales de semiconductores (WSTS) proyectan que el mercado global "
+            "alcanzará los 1,51 billones de dólares en 2026, un incremento del 89,9% respecto al año "
+            "anterior, la mayor revisión al alza de toda la historia del sector. En China, Huawei "
+            "proyecta que sus ingresos por chips de IA crecerán un 60% interanual hasta los "
+            "12.000 millones de dólares, mientras el país avanza en su objetivo de que el 70% de los "
+            "wafers de silicio que consumen sus fabricantes sea de producción nacional antes de "
+            "finales de 2026."
+        ),
+        "fuente_label": "BigGo Finance / WSTS — 2026 Semiconductor Market to Surge 90% to $1.5 Trillion",
+        "fuente_url": "https://finance.biggo.com/news/-JapiZ4BYH_ypPqOMIcM",
+    },
+    {
+        "emoji": "🌏",
+        "titulo": "China anfitriona de la APEC 2026: Shenzhen como laboratorio del futuro",
+        "cuerpo": (
+            "Shenzhen acogerá la Cumbre de Líderes de la APEC el 18-19 de noviembre de 2026. China, "
+            "como anfitriona, ha fijado el tema 'Construir una Comunidad Asia-Pacífico para Prosperar "
+            "Juntos' con tres pilares: apertura comercial (reactivar el FTAAP), cooperación en "
+            "infraestructura digital —con el puerto peruano de Chancay como caso emblematico— e "
+            "innovación con IA, economía digital y transición verde. Shenzhen ya despliega soluciones "
+            "de vanguardia: transporte autónomo, drones de pasajeros en fase final de prueba y robots "
+            "humanoides integrados en servicios públicos."
+        ),
+        "fuente_label": "Diario Financiero CL — China despliega potencial tecnológico para APEC 2026",
+        "fuente_url": "https://www.df.cl/economia-y-politica/macro/china-despliega-su-potencial-tecnologico-y-comercial-en-los-preparativos-de",
+    },
+    {
+        "emoji": "🤖",
+        "titulo": "CISCE 4: la cadena de suministro robótico chino se muestra al mundo",
+        "cuerpo": (
+            "La IV Exposición Internacional de Cadena de Suministro de China (CISCE), celebrada en "
+            "Pekín en junio, estrena por primera vez una zona dedicada exclusivamente a Inteligencia "
+            "Artificial. El evento da visibilidad a Zhejiang, uno de los principales polos robóticos "
+            "del país. Con envíos globales de humanoides estimados en 35.000 unidades en 2026 (+94% "
+            "interanual), China está pasando de la demostración tecnológica a la comercialización a "
+            "gran escala, con contratos reales en fábricas, centros comerciales y entornos "
+            "industriales peligrosos."
+        ),
+        "fuente_label": "PRNewswire — Behind CISCE: How China's supply chain is building tomorrow's robots",
+        "fuente_url": "https://www.prnewswire.com/news-releases/behind-cisce-with-jason-how-chinas-supply-chain-is-building-tomorrows-robots-302789738.html",
+    },
+    # --- NOTICIAS SEMANA ANTERIOR (archivo histórico) ---
+    {
         "emoji": "🏃",
         "titulo": "Robot humanoide bate el récord mundial de la media maratón en Pekín",
         "cuerpo": (
@@ -270,7 +393,7 @@ NOTICIAS = [
 
 
 def build_blocks():
-    today = date.today().strftime("%d de abril de %Y")
+    today = date.today().strftime("%d de %B de %Y")
     blocks = [
         callout(f"Newsletter semanal · China Al Dia · {today}", "🇨🇳"),
         p("Recopilacion de las noticias mas relevantes de China esta semana: tecnologia, economia, espacio y sociedad.", bold=False),
@@ -288,7 +411,7 @@ def build_blocks():
 
 
 def create_notion_page():
-    title = "China Al Dia — Semana 14-22 Abril 2026"
+    title = "China Al Dia — Semana 27 Mayo - 3 Junio 2026"
     payload = {
         "parent": {"type": "page_id", "page_id": PARENT_PAGE_ID},
         "icon": {"type": "emoji", "emoji": "🇨🇳"},
