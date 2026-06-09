@@ -81,7 +81,7 @@ def quote(text):
             "quote": {"rich_text": [{"type": "text", "text": {"content": text}}]}}
 
 
-NOTICIAS = [
+NOTICIAS_ABRIL = [
     {
         "emoji": "🏃",
         "titulo": "Robot humanoide bate el récord mundial de la media maratón en Pekín",
@@ -268,9 +268,146 @@ NOTICIAS = [
     },
 ]
 
+NOTICIAS = [
+    {
+        "emoji": "🚀",
+        "titulo": "China lanza el Long March 12B: el cohete reutilizable que compite con el Falcon 9",
+        "cuerpo": (
+            "El 1 de junio, China lanzó sin previo aviso público el debut del Long March 12B, un cohete de "
+            "72 metros y diseño reutilizable comparable al Falcon 9 de SpaceX. Despegó desde el Dongfeng "
+            "Commercial Space Innovation Test Zone en Mongolia Interior y colocó en órbita baja el 10.º lote "
+            "de satélites de la constelación de internet de banda ancha Qianfan ('Mil Velas'). Ha sido el "
+            "35.º intento orbital de China en los primeros cinco meses de 2026, un ritmo sin precedentes."
+        ),
+        "fuente_label": "SpaceNews — China conducts surprise launch of Long March 12B",
+        "fuente_url": "https://spacenews.com/china-conducts-surprise-launch-of-long-march-12b-delivers-qianfan-satellites-on-debut-flight/",
+    },
+    {
+        "emoji": "🤖",
+        "titulo": "La industria de robots humanoides china alcanza 28.000 unidades y abre el mercado de consumo",
+        "cuerpo": (
+            "El sector de robots humanoides de China ha disparado sus envíos a unas 28.000 unidades en 2026, "
+            "más del doble que en 2025. Las empresas AGIBOT y Unitree lideran el segmento con más de 5.000 "
+            "unidades cada una. Unitree recibió esta semana la aprobación para salir a bolsa en Shanghai. "
+            "UBTech abrió pre-pedidos del primer humanoide de tamaño real para el mercado de consumo en "
+            "JD.com, con lanzamiento previsto para el 30 de junio. La inversión total del sector en el "
+            "Q1 2026 superó los 68.100 millones de yuanes, más que todo 2025 junto."
+        ),
+        "fuente_label": "Fortune — Chinese humanoid robots global market",
+        "fuente_url": "https://fortune.com/2026/06/06/chinese-humanoid-robots-global-market-sales-performative-functional/",
+    },
+    {
+        "emoji": "📋",
+        "titulo": "China pone en vigor 102 estándares nacionales para IA y robótica",
+        "cuerpo": (
+            "El 1 de junio entraron en vigor 102 nuevas normas nacionales que regulan la robótica, la IA "
+            "encarnada (embodied AI), la automatización industrial y los agentes de IA. Los fabricantes ya "
+            "no pueden limitarse a demostrar capacidades: deben certificarlas y someterse a auditorías "
+            "verificables. El marco legal eleva la responsabilidad de la industria y convierte a China en "
+            "el primer país en normalizar a esta escala el sector de los robots inteligentes."
+        ),
+        "fuente_label": "EVS International — China 102 standards robotics AI",
+        "fuente_url": "https://www.evsint.com/china-102-standards-robotics-ai-prove-dont-demo/",
+    },
+    {
+        "emoji": "💾",
+        "titulo": "Huawei Ascend 910C apunta a 1,6 millones de unidades: tres empresas chinas en el top 20 mundial de chips",
+        "cuerpo": (
+            "Huawei se ha consolidado como el principal competidor nacional de NVIDIA en China, con su "
+            "acelerador Ascend 910C apuntando a la producción de 1,6 millones de unidades en 2026. Por "
+            "primera vez, tres fabricantes chinos de equipos de semiconductores —ACM Research, AMEC y "
+            "Naura Technology Group— entran en el top 20 mundial por ventas. China fija también para 2026 "
+            "un objetivo de autosuficiencia del 70% en obleas de silicio."
+        ),
+        "fuente_label": "TechWire Asia — China semiconductor self-sufficiency 2026",
+        "fuente_url": "https://techwireasia.com/2026/05/china-semiconductor-self-sufficiency-wafer-target-2026/",
+    },
+    {
+        "emoji": "🧠",
+        "titulo": "La carrera de datos de IA física: China moviliza trabajadores para entrenar robots humanoides",
+        "cuerpo": (
+            "Empresas tecnológicas chinas han puesto en marcha un ecosistema de recopilación de datos masivo: "
+            "equipos de trabajadores graban millones de horas de movimiento humano en hogares y fábricas "
+            "reales para entrenar sistemas de IA física. Esta estrategia de datos localizada y de bajo coste "
+            "es considerada una ventaja competitiva estructural frente a enfoques occidentales, y acelera el "
+            "liderazgo de China en robótica humanoide e IA encarnada."
+        ),
+        "fuente_label": "Rest of World — China AI robotics training data",
+        "fuente_url": "https://restofworld.org/2026/china-ai-robotics-training-data/",
+    },
+    {
+        "emoji": "📈",
+        "titulo": "PIB de China: +5% en el Q1 2026; startups recaudan 16.500 millones de dólares en el trimestre",
+        "cuerpo": (
+            "La economía china creció un 5,0% interanual en el primer trimestre, en la parte alta del rango "
+            "objetivo del Gobierno (4,5-5%). La industria manufacturera de alta tecnología siguió liderando, "
+            "y el comercio exterior registró su mayor crecimiento mensual en años. En paralelo, las startups "
+            "chinas captaron 16.500 millones de dólares en el Q1 2026, con la IA —StepFun, Moonshot AI, "
+            "Galaxy Bot— acaparando la mayor parte. Se espera que 2026 marque un hito en monetización de IA, "
+            "infraestructura cloud y publicidad tecnológica."
+        ),
+        "fuente_label": "China Briefing — China's economy in 2026",
+        "fuente_url": "https://www.china-briefing.com/news/chinas-economy-in-2026-january-february-rebound/",
+    },
+    {
+        "emoji": "⚡",
+        "titulo": "La energía limpia ya supera al carbón en capacidad; solar superará al carbón en 2026",
+        "cuerpo": (
+            "A cierre de marzo de 2026, la capacidad combinada de eólica y solar alcanzó 1.482 GW, "
+            "superando oficialmente la capacidad del carbón por primera vez en la historia. La energía limpia "
+            "representó el 11,4% del PIB chino en 2025 —15,4 billones de yuanes (2,1 billones de dólares)—. "
+            "El Plan Quinquenal 2026-2030 contempla 100 GW de almacenamiento hidroeléctrico por bombeo, más "
+            "de 100 GW de nueva eólica marina y ampliar la transmisión de energía limpia de oeste a este "
+            "hasta 420 GW (frente a los 340 GW actuales)."
+        ),
+        "fuente_label": "Carbon Brief — China clean energy share of economy record",
+        "fuente_url": "https://www.carbonbrief.org/china-briefing-5-february-2026-clean-energys-share-of-economy-record-renewables-thawing-relations-with-uk/",
+    },
+    {
+        "emoji": "🔌",
+        "titulo": "Plan de 5 billones de yuanes para modernizar la red eléctrica nacional (2026-2030)",
+        "cuerpo": (
+            "China invertirá más de 5 billones de yuanes en modernizar su red eléctrica durante el "
+            "15.º Plan Quinquenal, incluyendo nuevos corredores de transmisión, proyectos de ayuda mutua "
+            "interprovincial y fortalecimiento de la red rural. La capacidad de almacenamiento de energía "
+            "ya superó los 213 GW en 2025. La inversión total en infraestructura —red eléctrica, "
+            "computación, educación y salud— superará los 7 billones de yuanes solo en 2026."
+        ),
+        "fuente_label": "China Briefing — China's clean energy transition 15th Five-Year Plan",
+        "fuente_url": "https://www.china-briefing.com/news/chinas-clean-energy-transition-15th-five-year-plan/",
+    },
+    {
+        "emoji": "🏗️",
+        "titulo": "China renovará 770.000 km de tuberías urbanas subterráneas antes de 2030",
+        "cuerpo": (
+            "El 8 de junio, Xinhua anunció que China construirá y renovará aproximadamente 770.000 km de "
+            "tuberías subterráneas urbanas durante el 15.º Plan Quinquenal (2026-2030). La iniciativa apunta "
+            "al control de inundaciones mediante la mejora de redes de drenaje y alcantarillado, la "
+            "sustitución de redes antiguas de agua y gas, y la modernización de sistemas urbanos de "
+            "calefacción."
+        ),
+        "fuente_label": "Xinhua — China urban underground pipeline upgrades",
+        "fuente_url": "https://english.news.cn/20260608/115c1021f68e4686b0ca06a0987d2193/c.html",
+    },
+    {
+        "emoji": "🌏",
+        "titulo": "China acogerá el APEC 2026 en Shenzhen: drones, robots y gobernanza de la IA",
+        "cuerpo": (
+            "Shenzhen se prepara para ser el epicentro global de tecnología cuando acoja el APEC 2026 "
+            "(18-19 de noviembre). La ciudad ya está probando en fase final el transporte autónomo, los "
+            "drones de pasajeros (economía de baja altitud) y robots humanoides en servicios públicos. "
+            "La agenda del foro incluye gobernanza de la IA para el bien común, resiliencia de cadenas de "
+            "suministro e infraestructura digital, posicionando a China como líder en gobernanza tecnológica "
+            "global."
+        ),
+        "fuente_label": "Diario Financiero — China en los preparativos del APEC 2026",
+        "fuente_url": "https://www.df.cl/economia-y-politica/macro/china-despliega-su-potencial-tecnologico-y-comercial-en-los-preparativos-de",
+    },
+]
+
 
 def build_blocks():
-    today = date.today().strftime("%d de abril de %Y")
+    today = date.today().strftime("%-d de %B de %Y")
     blocks = [
         callout(f"Newsletter semanal · China Al Dia · {today}", "🇨🇳"),
         p("Recopilacion de las noticias mas relevantes de China esta semana: tecnologia, economia, espacio y sociedad.", bold=False),
@@ -288,7 +425,7 @@ def build_blocks():
 
 
 def create_notion_page():
-    title = "China Al Dia — Semana 14-22 Abril 2026"
+    title = f"China Al Dia — Semana 2-9 Junio 2026"
     payload = {
         "parent": {"type": "page_id", "page_id": PARENT_PAGE_ID},
         "icon": {"type": "emoji", "emoji": "🇨🇳"},
