@@ -5,9 +5,11 @@ on:
   push:
     paths:
       - "newsletters/*.md"
+      - "publish_to_notion.py"
     branches:
       - main
       - claude/funny-brown-GXqEH
+      - claude/funny-brown-nmkmo6
 
 jobs:
   publish:
