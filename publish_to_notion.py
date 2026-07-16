@@ -1,14 +1,17 @@
 #!/usr/bin/env python3
 """
 Publica la newsletter semanal de China Al Dia en Notion.
-Uso: NOTION_TOKEN=<token> python publish_to_notion.py
+Uso: NOTION_TOKEN=<token> python publish_to_notion.py [YYYY-MM-DD]
+     Si no se pasa fecha, se usa la mas reciente en newsletters/.
 """
 
 import json
 import os
+import re
 import subprocess
 import sys
 from datetime import date
+from pathlib import Path
 
 NOTION_TOKEN = os.environ.get("NOTION_TOKEN")
 PARENT_PAGE_ID = os.environ.get("PARENT_PAGE_ID", "34ae9ac6c5268056bd3cfeddc772dddc")
@@ -19,6 +22,7 @@ if not NOTION_TOKEN:
 
 API_BASE = "https://api.notion.com/v1"
 NOTION_VERSION = "2022-06-28"
+NEWSLETTERS_DIR = Path(__file__).parent / "newsletters"
 
 
 def notion_request(method, endpoint, data=None):
@@ -55,6 +59,10 @@ def h2(text):
     return {"object": "block", "type": "heading_2",
             "heading_2": {"rich_text": [{"type": "text", "text": {"content": text}}]}}
 
+def h3(text):
+    return {"object": "block", "type": "heading_3",
+            "heading_3": {"rich_text": [{"type": "text", "text": {"content": text}}]}}
+
 def p(text, bold=False):
     return {"object": "block", "type": "paragraph",
             "paragraph": {"rich_text": [{"type": "text", "text": {"content": text},
@@ -76,219 +84,145 @@ def callout(text, emoji="📌"):
             "callout": {"icon": {"type": "emoji", "emoji": emoji},
                         "rich_text": [{"type": "text", "text": {"content": text}}]}}
 
+def bulleted(text):
+    return {"object": "block", "type": "bulleted_list_item",
+            "bulleted_list_item": {"rich_text": [{"type": "text", "text": {"content": text}}]}}
+
 def quote(text):
     return {"object": "block", "type": "quote",
             "quote": {"rich_text": [{"type": "text", "text": {"content": text}}]}}
 
 
-NOTICIAS = [
-    {
-        "emoji": "🏃",
-        "titulo": "Robot humanoide bate el récord mundial de la media maratón en Pekín",
-        "cuerpo": (
-            "El 19 de abril, el robot humanoide Lightning, desarrollado por Honor (spin-off de Huawei), "
-            "completó los 21 km de la media maratón de E-Town en Pekín en tan solo 50 minutos y 26 segundos, "
-            "superando el récord mundial humano por más de 6 minutos. Honor copó los tres primeros puestos "
-            "de la categoría robótica, con todos los finalistas corriendo de forma completamente autónoma, "
-            "sin control remoto. Más de 100 equipos participaron este año, casi cinco veces más que en la "
-            "edición inaugural de 2025, donde el ganador tardó 2 horas y 40 minutos. Un hito que marca el "
-            "ritmo vertiginoso del desarrollo robótico chino."
-        ),
-        "fuente_label": "NPR — Humanoid robot wins Beijing half-marathon",
-        "fuente_url": "https://www.npr.org/2026/04/20/g-s1-118086/humanoid-robot-half-marathon",
-    },
-    {
-        "emoji": "🚗",
-        "titulo": "Exportaciones de vehículos eléctricos chinos baten récord histórico: +140%",
-        "cuerpo": (
-            "Las exportaciones chinas de vehículos eléctricos e híbridos se dispararon un 140% interanual "
-            "en marzo de 2026, alcanzando 349.000 unidades, el nivel más alto jamás registrado. El principal "
-            "catalizador fue el shock del precio del petróleo provocado por tensiones en el Estrecho de Ormuz, "
-            "que empujó a compradores de Asia-Pacífico, Europa y América a pasarse al vehículo eléctrico. "
-            "BYD lideró las exportaciones, seguida de Geely y Chery. La compañía china más grande del mundo "
-            "en vehículos eléctricos apunta a 1,5 millones de ventas en el exterior en 2026, un 15% más de "
-            "su objetivo anterior, consolidando su posición global."
-        ),
-        "fuente_label": "Bloomberg — China's EV Exports Jump to Record",
-        "fuente_url": "https://www.bloomberg.com/news/articles/2026-04-09/china-ev-exports-jump-to-record-as-iran-oil-shock-entices-buyers",
-    },
-    {
-        "emoji": "🤖",
-        "titulo": "China producirá un 94% más robots con IA en 2026: el sector vive su época dorada",
-        "cuerpo": (
-            "Decenas de fabricantes chinos de robótica anunciaron planes para aumentar su producción de "
-            "robots con inteligencia artificial incorporada en un 94% durante 2026. El sector abarca desde "
-            "robots diseñados para entornos de alto riesgo (instalaciones energéticas, tanques químicos, "
-            "plataformas marinas) hasta robots de servicio para el cuidado de personas mayores. Las "
-            "startups chinas de humanoides ya están enviando unidades a fábricas y centros comerciales "
-            "con contratos reales, mientras sus competidoras estadounidenses siguen mayoritariamente en "
-            "fase de desarrollo. TechCrunch calificó este momento como 'el madrugón del mercado robótico chino'."
-        ),
-        "fuente_label": "TechCrunch — Why China's humanoid robot industry is winning the early market",
-        "fuente_url": "https://techcrunch.com/2026/02/28/why-chinas-humanoid-robot-industry-is-winning-the-early-market/",
-    },
-    {
-        "emoji": "🧮",
-        "titulo": "Una IA china resuelve un problema matemático que llevaba más de una década sin solución",
-        "cuerpo": (
-            "Un sistema de inteligencia artificial desarrollado en China logró resolver un problema "
-            "matemático que la comunidad científica llevaba más de 10 años sin poder descifrar. El avance, "
-            "publicado el 13 de abril, refuerza la apuesta de Pekín por la IA como herramienta de "
-            "investigación científica de frontera. En paralelo, en el primer trimestre de 2026 las patentes "
-            "relacionadas con IA crecieron un 31,2% interanual, y China ya cuenta con 602 millones de "
-            "usuarios de IA generativa —más de la mitad de los usuarios globales—. La industria central "
-            "de IA del país superó el billón de yuanes en valor en 2025."
-        ),
-        "fuente_label": "BioBioChile — IA china resuelve problema matemático",
-        "fuente_url": "https://www.biobiochile.cl/noticias/ciencia-y-tecnologia/pc-e-internet/2026/04/13/ia-china-resuelve-problema-matematico-que-llevaba-mas-de-una-decada-sin-solucion.shtml",
-    },
-    {
-        "emoji": "🚀",
-        "titulo": "Chang'e-7 llega a la base de lanzamiento: China se prepara para explorar el polo sur lunar",
-        "cuerpo": (
-            "El 10 de abril todos los módulos de la misión Chang'e-7 llegaron sanos y salvos a la Base "
-            "Espacial de Wenchang para iniciar las pruebas previas al lanzamiento, previsto para agosto "
-            "de 2026. La misión incluye un orbitador, un módulo de aterrizaje, un rover y una sonda "
-            "mini-saltadora diseñada para explorar cráteres en sombra permanente del polo sur lunar, "
-            "donde se sospecha la existencia de agua en forma de hielo. Además, la Agencia Espacial "
-            "Nacional China (CNSA) confirmó misiones intensivas en 2026: el acercamiento de Tianwen-2 "
-            "a su asteroide objetivo, las misiones tripuladas Shenzhou-23 y ensayos del cohete reutilizable "
-            "Larga Marcha 10, pieza clave del programa lunar tripulado antes de 2030."
-        ),
-        "fuente_label": "Global Times — China unveils major 2026 space missions",
-        "fuente_url": "https://www.globaltimes.cn/page/202604/1359177.shtml",
-    },
-    {
-        "emoji": "📈",
-        "titulo": "PIB de China crece un 5% en Q1 2026, superando expectativas",
-        "cuerpo": (
-            "La economía china arrancó 2026 con fuerza: el PIB creció un 5% interanual en el primer "
-            "trimestre, por encima de las previsiones de los analistas y el ritmo más rápido en tres "
-            "trimestres. El motor principal fue la manufactura de alta tecnología, que creció un 12,5%, "
-            "con robots industriales y circuitos integrados disparándose un 33% y un 24% respectivamente. "
-            "El comercio exterior aumento un 15% en el mismo período, con exportaciones de bienes "
-            "creciendo un 18,3% en enero-febrero —el primer crecimiento de doble dígito desde marzo "
-            "de 2023—, reflejando la resistencia de la segunda economía del mundo pese a las "
-            "turbulencias geopolíticas."
-        ),
-        "fuente_label": "CGTN Español — Comercio exterior de China aumenta 15% en Q1 2026",
-        "fuente_url": "https://espanol.cgtn.com/news/2026-04-15/2044294393639481345/index.html",
-    },
-    {
-        "emoji": "💾",
-        "titulo": "Semiconductores chinos baten récord histórico de ingresos impulsados por la IA",
-        "cuerpo": (
-            "Las empresas chinas de chips reportaron ingresos récord en el primer trimestre de 2026, "
-            "impulsadas por el boom de la IA y la aceleración de la autosuficiencia tecnológica. SMIC, "
-            "el mayor fabricante chino, registró 9.300 millones de dólares en ingresos en 2025 (+16%) "
-            "y proyecta superar los 11.000 millones en 2026. CXMT (memoria) disparó sus ingresos un "
-            "130% interanual hasta 55.000 millones de yuanes. Según Digitimes, China alcanzará el 42% "
-            "de la capacidad global de producción de chips en nodos maduros (22-40nm) para 2028, frente "
-            "al 37% actual, liderando un segmento clave para la industria global."
-        ),
-        "fuente_label": "CNBC — Chinese chip firms hit record revenue driven by AI boom",
-        "fuente_url": "https://www.cnbc.com/2026/04/03/chinese-chip-firms-record-revenue-ai-boom-us-curbs.html",
-    },
-    {
-        "emoji": "⚡",
-        "titulo": "China planea doblar su energía limpia para 2035 con una inversión billonaria",
-        "cuerpo": (
-            "El 17 de abril, la Comisión Nacional de Desarrollo y Reforma anunció un plan para duplicar "
-            "el suministro de energía no fósil de China para 2035 respecto a los niveles de 2025. El "
-            "ambicioso programa incluye nuevos parques eólicos marinos, grandes plantas solares en el "
-            "desierto y un macroproyecto hidroeléctrico en el Tíbet. Las dos grandes empresas estatales "
-            "de la red eléctrica invertirán 1 billón de yuanes anuales (aproximadamente 146.000 millones "
-            "de dólares) durante todo el 15.º Plan Quinquenal (2026-2030). State Grid ya aumentó un 50% "
-            "su gasto en conexión de nuevas energías a la red solo en el primer trimestre."
-        ),
-        "fuente_label": "Bloomberg — China Lifts Green Push With Plan to Double Clean Energy by 2035",
-        "fuente_url": "https://www.bloomberg.com/news/articles/2026-04-17/china-lifts-green-push-with-plan-to-double-clean-energy-by-2035",
-    },
-    {
-        "emoji": "📡",
-        "titulo": "5G-A cubre ya 330 ciudades chinas: 4.958 millones de estaciones base operativas",
-        "cuerpo": (
-            "A cierre de marzo de 2026, China contaba con 4.958 millones de estaciones base 5G, con la "
-            "tecnología 5G-Advanced (5G-A, la evolución del 5G estándar) cubriendo 330 ciudades. Los "
-            "usuarios de Internet de las Cosas (IoT) alcanzaron los 2.948 millones —casi tres veces la "
-            "población china—. El sector de fabricación de equipos electrónicos y comunicaciones creció "
-            "un 13,6% interanual en el primer trimestre. China ya planifica el despliegue de 500.000 "
-            "nuevas estaciones 5G-A antes de 2030, mientras avanza en la investigación del 6G, previsto "
-            "como nuevo motor de crecimiento económico global a partir de esa fecha."
-        ),
-        "fuente_label": "Xinhua — China boosts digital technology in push for modernization",
-        "fuente_url": "http://www.shanghainews.net/news/279002526/china-boosts-digital-technology-in-push-for-modernization",
-    },
-    {
-        "emoji": "🏥",
-        "titulo": "IA y medicina tradicional china: quioscos de diagnóstico inteligente en el metro",
-        "cuerpo": (
-            "China ha comenzado a desplegar quioscos de diagnóstico asistido por inteligencia artificial "
-            "en estaciones de metro y puntos urbanos estratégicos, combinando tecnología biomédica de "
-            "vanguardia con principios de la Medicina Tradicional China. Estos dispositivos miden presión "
-            "arterial, frecuencia cardíaca, saturación de oxígeno y temperatura, mientras la IA aplica "
-            "criterios de la tradición médica china: análisis facial, observación de la lengua e "
-            "interpretación digital del pulso mediante sensores de presión multicapa. La Comisión Nacional "
-            "de Salud ha promovido la integración de herramientas de IA en los servicios médicos como "
-            "parte de la estrategia de salud digital nacional."
-        ),
-        "fuente_label": "Mundo Global — China: IA y Medicina Tradicional",
-        "fuente_url": "https://mundoglobal.org/china-avanza-hacia-un-modelo-de-salud-digital-que-une-ia-y-medicina-tradicional-china/",
-    },
-    {
-        "emoji": "🏭",
-        "titulo": "Foro Zhongguancun 2026: robots camareros y el despegue de la economía inteligente",
-        "cuerpo": (
-            "En el Foro Zhongguancun 2026 celebrado en Pekín, los robots camareros se convirtieron en "
-            "protagonistas al atender más de 100 pedidos durante el primer día del evento. La demostración "
-            "reflejó la aceleración de la 'economía inteligente' china, un concepto central del nuevo "
-            "plan quinquenal. La Xinhua informó que China está impulsando activamente la integración de "
-            "la IA en los sectores productivos reales, con el objetivo de que el 70% de la economía "
-            "incorpore IA en sus procesos para 2027, y el 90% para 2030. Las industrias de IA del país "
-            "apuntan a superar los 10 billones de yuanes en valor para 2030."
-        ),
-        "fuente_label": "Xinhua — China impulsa la economia inteligente",
-        "fuente_url": "https://spanish.xinhuanet.com/20260403/f57625afb3ea44fbb428d542671249c5/c.html",
-    },
-    {
-        "emoji": "🗺️",
-        "titulo": "El 15.º Plan Quinquenal (2026-2030): IA, 6G, robots y biotech como pilares del futuro",
-        "cuerpo": (
-            "El nuevo plan quinquenal chino sitúa las llamadas 'Nuevas Fuerzas Productivas de Calidad' "
-            "en el centro de su estrategia de desarrollo. Los ejes son claros: IA Plus (aplicar la IA "
-            "como infraestructura transversal a toda la economía), 6G, robótica, biotecnología y economía "
-            "de baja altitud (drones). Las industrias emergentes —circuitos integrados, robots inteligentes "
-            "y drones— suman ya casi 6 billones de yuanes y aspiran a 10 billones para 2030. El presupuesto "
-            "en Ciencia y Tecnología creció un 7,1% hasta 1,3 billones de yuanes. China no solo quiere "
-            "liderar estas tecnologías: quiere que sean el motor de su desarrollo económico de las "
-            "próximas dos décadas."
-        ),
-        "fuente_label": "China Briefing — China's Industries to Watch in 2026",
-        "fuente_url": "https://www.china-briefing.com/news/chinas-industries-to-watch-in-2026/",
-    },
-]
+# --- Parser de Markdown a bloques Notion ---
 
+def parse_md_to_blocks(md_text):
+    """Convierte markdown de newsletter a bloques Notion."""
+    blocks = []
+    lines = md_text.splitlines()
+    i = 0
+    first_h1_done = False
 
-def build_blocks():
-    today = date.today().strftime("%d de abril de %Y")
-    blocks = [
-        callout(f"Newsletter semanal · China Al Dia · {today}", "🇨🇳"),
-        p("Recopilacion de las noticias mas relevantes de China esta semana: tecnologia, economia, espacio y sociedad.", bold=False),
-        divider(),
-    ]
+    while i < len(lines):
+        line = lines[i]
 
-    for n in NOTICIAS:
-        blocks.append(h2(f"{n['emoji']}  {n['titulo']}"))
-        blocks.append(p(n["cuerpo"]))
-        blocks.append(p_link(n["fuente_label"], n["fuente_url"]))
-        blocks.append(divider())
+        # H1 — titulo principal
+        if line.startswith("# ") and not first_h1_done:
+            first_h1_done = True
+            title = line[2:].strip()
+            blocks.append(callout(title, "🇨🇳"))
+            i += 1
+            continue
 
-    blocks.append(p("China al Dia · Newsletter semanal en espanol · Fuentes internacionales verificadas", bold=True))
+        # H2 — seccion (## Texto)
+        if line.startswith("## "):
+            text = line[3:].strip()
+            # subtitulo de semana justo bajo el H1
+            if text.startswith("Tu resumen"):
+                blocks.append(p(text))
+            else:
+                blocks.append(h2(text))
+            i += 1
+            continue
+
+        # H3 — noticia individual
+        if line.startswith("### "):
+            text = line[4:].strip()
+            blocks.append(h3(text))
+            i += 1
+            continue
+
+        # Negrita sola en linea (**Texto**)
+        if line.startswith("**") and line.endswith("**") and len(line) > 4:
+            text = line[2:-2]
+            blocks.append(p(text, bold=True))
+            i += 1
+            continue
+
+        # Separador ---
+        if line.strip() == "---":
+            blocks.append(divider())
+            i += 1
+            continue
+
+        # Lista de fuentes: "- Texto: url" o "- [Texto](url)"
+        if line.startswith("- "):
+            content = line[2:].strip()
+            # formato markdown link: [label](url)
+            md_link = re.match(r'\[(.+?)\]\((.+?)\)', content)
+            if md_link:
+                blocks.append(p_link(md_link.group(1), md_link.group(2)))
+            # formato "Label: url"
+            elif ': http' in content:
+                parts = content.split(': ', 1)
+                if len(parts) == 2:
+                    blocks.append(p_link(parts[0], parts[1]))
+                else:
+                    blocks.append(bulleted(content))
+            else:
+                blocks.append(bulleted(content))
+            i += 1
+            continue
+
+        # Linea vacia
+        if line.strip() == "":
+            i += 1
+            continue
+
+        # Linea de texto italica (*texto*)
+        if line.startswith("*") and line.endswith("*"):
+            text = line.strip("*")
+            blocks.append(p(text))
+            i += 1
+            continue
+
+        # Parrafo normal
+        if line.strip():
+            # Eliminar formato markdown basico (**bold**, *italic*)
+            clean = re.sub(r'\*\*(.+?)\*\*', r'\1', line)
+            clean = re.sub(r'\*(.+?)\*', r'\1', clean)
+            blocks.append(p(clean.strip()))
+
+        i += 1
+
     return blocks
 
 
-def create_notion_page():
-    title = "China Al Dia — Semana 14-22 Abril 2026"
+def pick_newsletter_file(date_arg=None):
+    if date_arg:
+        path = NEWSLETTERS_DIR / f"{date_arg}.md"
+        if not path.exists():
+            print(f"ERROR: no se encuentra {path}")
+            sys.exit(1)
+        return path
+    # La mas reciente
+    files = sorted(NEWSLETTERS_DIR.glob("*.md"), reverse=True)
+    if not files:
+        print("ERROR: no hay archivos en newsletters/")
+        sys.exit(1)
+    return files[0]
+
+
+def extract_title_and_week(md_text, file_stem):
+    """Extrae titulo de la newsletter del markdown."""
+    for line in md_text.splitlines():
+        if line.startswith("**Semana del "):
+            week = line.strip("*").strip()
+            return f"China Al Dia — {week}", week
+    return f"China Al Dia — {file_stem}", file_stem
+
+
+def create_notion_page(date_arg=None):
+    md_file = pick_newsletter_file(date_arg)
+    md_text = md_file.read_text(encoding="utf-8")
+
+    title, week = extract_title_and_week(md_text, md_file.stem)
+    blocks = parse_md_to_blocks(md_text)
+
+    # Notion limita a 100 bloques por peticion
+    CHUNK = 100
+    first_chunk = blocks[:CHUNK]
+    rest_chunks = [blocks[j:j+CHUNK] for j in range(CHUNK, len(blocks), CHUNK)]
+
     payload = {
         "parent": {"type": "page_id", "page_id": PARENT_PAGE_ID},
         "icon": {"type": "emoji", "emoji": "🇨🇳"},
@@ -298,18 +232,24 @@ def create_notion_page():
         "properties": {
             "title": {"title": [{"type": "text", "text": {"content": title}}]}
         },
-        "children": build_blocks(),
+        "children": first_chunk,
     }
 
-    print(f"Creando pagina en Notion: '{title}'")
-    print(f"Noticias incluidas: {len(NOTICIAS)}")
+    print(f"Publicando: '{title}'")
+    print(f"Bloques totales: {len(blocks)}")
     result = notion_request("POST", "/pages", payload)
-    page_id = result.get("id", "").replace("-", "")
-    page_url = result.get("url", f"https://www.notion.so/{page_id}")
+    page_id = result.get("id", "")
+    page_url = result.get("url", f"https://www.notion.so/{page_id.replace('-', '')}")
+
+    # Añadir bloques restantes en chunks
+    for chunk in rest_chunks:
+        notion_request("PATCH", f"/blocks/{page_id}/children", {"children": chunk})
+
     print(f"\nListo!")
     print(f"URL: {page_url}")
     return page_url
 
 
 if __name__ == "__main__":
-    create_notion_page()
+    date_arg = sys.argv[1] if len(sys.argv) > 1 else None
+    create_notion_page(date_arg)
