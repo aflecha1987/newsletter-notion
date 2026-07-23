@@ -80,197 +80,155 @@ def quote(text):
     return {"object": "block", "type": "quote",
             "quote": {"rich_text": [{"type": "text", "text": {"content": text}}]}}
 
+def bullet(text):
+    return {"object": "block", "type": "bulleted_list_item",
+            "bulleted_list_item": {"rich_text": [{"type": "text", "text": {"content": text}}]}}
+
 
 NOTICIAS = [
     {
-        "emoji": "🏃",
-        "titulo": "Robot humanoide bate el récord mundial de la media maratón en Pekín",
-        "cuerpo": (
-            "El 19 de abril, el robot humanoide Lightning, desarrollado por Honor (spin-off de Huawei), "
-            "completó los 21 km de la media maratón de E-Town en Pekín en tan solo 50 minutos y 26 segundos, "
-            "superando el récord mundial humano por más de 6 minutos. Honor copó los tres primeros puestos "
-            "de la categoría robótica, con todos los finalistas corriendo de forma completamente autónoma, "
-            "sin control remoto. Más de 100 equipos participaron este año, casi cinco veces más que en la "
-            "edición inaugural de 2025, donde el ganador tardó 2 horas y 40 minutos. Un hito que marca el "
-            "ritmo vertiginoso del desarrollo robótico chino."
-        ),
-        "fuente_label": "NPR — Humanoid robot wins Beijing half-marathon",
-        "fuente_url": "https://www.npr.org/2026/04/20/g-s1-118086/humanoid-robot-half-marathon",
-    },
-    {
-        "emoji": "🚗",
-        "titulo": "Exportaciones de vehículos eléctricos chinos baten récord histórico: +140%",
-        "cuerpo": (
-            "Las exportaciones chinas de vehículos eléctricos e híbridos se dispararon un 140% interanual "
-            "en marzo de 2026, alcanzando 349.000 unidades, el nivel más alto jamás registrado. El principal "
-            "catalizador fue el shock del precio del petróleo provocado por tensiones en el Estrecho de Ormuz, "
-            "que empujó a compradores de Asia-Pacífico, Europa y América a pasarse al vehículo eléctrico. "
-            "BYD lideró las exportaciones, seguida de Geely y Chery. La compañía china más grande del mundo "
-            "en vehículos eléctricos apunta a 1,5 millones de ventas en el exterior en 2026, un 15% más de "
-            "su objetivo anterior, consolidando su posición global."
-        ),
-        "fuente_label": "Bloomberg — China's EV Exports Jump to Record",
-        "fuente_url": "https://www.bloomberg.com/news/articles/2026-04-09/china-ev-exports-jump-to-record-as-iran-oil-shock-entices-buyers",
-    },
-    {
         "emoji": "🤖",
-        "titulo": "China producirá un 94% más robots con IA en 2026: el sector vive su época dorada",
+        "titulo": "La WAIC 2026 convierte Shanghai en la capital global de la inteligencia artificial",
         "cuerpo": (
-            "Decenas de fabricantes chinos de robótica anunciaron planes para aumentar su producción de "
-            "robots con inteligencia artificial incorporada en un 94% durante 2026. El sector abarca desde "
-            "robots diseñados para entornos de alto riesgo (instalaciones energéticas, tanques químicos, "
-            "plataformas marinas) hasta robots de servicio para el cuidado de personas mayores. Las "
-            "startups chinas de humanoides ya están enviando unidades a fábricas y centros comerciales "
-            "con contratos reales, mientras sus competidoras estadounidenses siguen mayoritariamente en "
-            "fase de desarrollo. TechCrunch calificó este momento como 'el madrugón del mercado robótico chino'."
+            "Del 17 al 20 de julio, Shanghai acogió la Conferencia Mundial de Inteligencia Artificial (WAIC 2026) "
+            "bajo el lema 'Alianza en la IA para un futuro más brillante'. Con más de 1.100 empresas expositoras, "
+            "3.000 productos en exhibición y 300 debuts mundiales, el evento superó todos los récords anteriores. "
+            "Los temas centrales fueron los agentes de IA autónomos, la inteligencia encarnada (robótica), la "
+            "computación científica y la gobernanza global de la IA. Shanghai se consolida como el epicentro "
+            "mundial del desarrollo de la inteligencia artificial."
         ),
-        "fuente_label": "TechCrunch — Why China's humanoid robot industry is winning the early market",
-        "fuente_url": "https://techcrunch.com/2026/02/28/why-chinas-humanoid-robot-industry-is-winning-the-early-market/",
+        "fuente_label": "People's Daily — 2026 WAIC set for July 17 with over 300 global product debuts",
+        "fuente_url": "https://en.people.cn/n3/2026/0708/c90000-20475542.html",
     },
     {
-        "emoji": "🧮",
-        "titulo": "Una IA china resuelve un problema matemático que llevaba más de una década sin solución",
+        "emoji": "🧠",
+        "titulo": "Moonshot AI presenta Kimi K3: el modelo chino que rivaliza con OpenAI y Anthropic",
         "cuerpo": (
-            "Un sistema de inteligencia artificial desarrollado en China logró resolver un problema "
-            "matemático que la comunidad científica llevaba más de 10 años sin poder descifrar. El avance, "
-            "publicado el 13 de abril, refuerza la apuesta de Pekín por la IA como herramienta de "
-            "investigación científica de frontera. En paralelo, en el primer trimestre de 2026 las patentes "
-            "relacionadas con IA crecieron un 31,2% interanual, y China ya cuenta con 602 millones de "
-            "usuarios de IA generativa —más de la mitad de los usuarios globales—. La industria central "
-            "de IA del país superó el billón de yuanes en valor en 2025."
+            "El 16 de julio, Moonshot AI presentó Kimi K3, el modelo que sacudió al sector global de IA. "
+            "Según la empresa, Kimi K3 supera a Claude Opus 4.8 y GPT-5.5 en benchmarks de código y agentes "
+            "generales, acercándose a los modelos de gama alta de EE.UU. El precio de $15 por millón de tokens "
+            "de salida es significativamente menor que los $50 de modelos equivalentes estadounidenses. La empresa "
+            "anunció además una OPV en Hong Kong en los próximos seis meses. Moonshot levantó 2.000 millones de "
+            "dólares en mayo con una valoración de más de 20.000 millones, consolidando el auge de la IA china."
         ),
-        "fuente_label": "BioBioChile — IA china resuelve problema matemático",
-        "fuente_url": "https://www.biobiochile.cl/noticias/ciencia-y-tecnologia/pc-e-internet/2026/04/13/ia-china-resuelve-problema-matematico-que-llevaba-mas-de-una-decada-sin-solucion.shtml",
-    },
-    {
-        "emoji": "🚀",
-        "titulo": "Chang'e-7 llega a la base de lanzamiento: China se prepara para explorar el polo sur lunar",
-        "cuerpo": (
-            "El 10 de abril todos los módulos de la misión Chang'e-7 llegaron sanos y salvos a la Base "
-            "Espacial de Wenchang para iniciar las pruebas previas al lanzamiento, previsto para agosto "
-            "de 2026. La misión incluye un orbitador, un módulo de aterrizaje, un rover y una sonda "
-            "mini-saltadora diseñada para explorar cráteres en sombra permanente del polo sur lunar, "
-            "donde se sospecha la existencia de agua en forma de hielo. Además, la Agencia Espacial "
-            "Nacional China (CNSA) confirmó misiones intensivas en 2026: el acercamiento de Tianwen-2 "
-            "a su asteroide objetivo, las misiones tripuladas Shenzhou-23 y ensayos del cohete reutilizable "
-            "Larga Marcha 10, pieza clave del programa lunar tripulado antes de 2030."
-        ),
-        "fuente_label": "Global Times — China unveils major 2026 space missions",
-        "fuente_url": "https://www.globaltimes.cn/page/202604/1359177.shtml",
-    },
-    {
-        "emoji": "📈",
-        "titulo": "PIB de China crece un 5% en Q1 2026, superando expectativas",
-        "cuerpo": (
-            "La economía china arrancó 2026 con fuerza: el PIB creció un 5% interanual en el primer "
-            "trimestre, por encima de las previsiones de los analistas y el ritmo más rápido en tres "
-            "trimestres. El motor principal fue la manufactura de alta tecnología, que creció un 12,5%, "
-            "con robots industriales y circuitos integrados disparándose un 33% y un 24% respectivamente. "
-            "El comercio exterior aumento un 15% en el mismo período, con exportaciones de bienes "
-            "creciendo un 18,3% en enero-febrero —el primer crecimiento de doble dígito desde marzo "
-            "de 2023—, reflejando la resistencia de la segunda economía del mundo pese a las "
-            "turbulencias geopolíticas."
-        ),
-        "fuente_label": "CGTN Español — Comercio exterior de China aumenta 15% en Q1 2026",
-        "fuente_url": "https://espanol.cgtn.com/news/2026-04-15/2044294393639481345/index.html",
-    },
-    {
-        "emoji": "💾",
-        "titulo": "Semiconductores chinos baten récord histórico de ingresos impulsados por la IA",
-        "cuerpo": (
-            "Las empresas chinas de chips reportaron ingresos récord en el primer trimestre de 2026, "
-            "impulsadas por el boom de la IA y la aceleración de la autosuficiencia tecnológica. SMIC, "
-            "el mayor fabricante chino, registró 9.300 millones de dólares en ingresos en 2025 (+16%) "
-            "y proyecta superar los 11.000 millones en 2026. CXMT (memoria) disparó sus ingresos un "
-            "130% interanual hasta 55.000 millones de yuanes. Según Digitimes, China alcanzará el 42% "
-            "de la capacidad global de producción de chips en nodos maduros (22-40nm) para 2028, frente "
-            "al 37% actual, liderando un segmento clave para la industria global."
-        ),
-        "fuente_label": "CNBC — Chinese chip firms hit record revenue driven by AI boom",
-        "fuente_url": "https://www.cnbc.com/2026/04/03/chinese-chip-firms-record-revenue-ai-boom-us-curbs.html",
-    },
-    {
-        "emoji": "⚡",
-        "titulo": "China planea doblar su energía limpia para 2035 con una inversión billonaria",
-        "cuerpo": (
-            "El 17 de abril, la Comisión Nacional de Desarrollo y Reforma anunció un plan para duplicar "
-            "el suministro de energía no fósil de China para 2035 respecto a los niveles de 2025. El "
-            "ambicioso programa incluye nuevos parques eólicos marinos, grandes plantas solares en el "
-            "desierto y un macroproyecto hidroeléctrico en el Tíbet. Las dos grandes empresas estatales "
-            "de la red eléctrica invertirán 1 billón de yuanes anuales (aproximadamente 146.000 millones "
-            "de dólares) durante todo el 15.º Plan Quinquenal (2026-2030). State Grid ya aumentó un 50% "
-            "su gasto en conexión de nuevas energías a la red solo en el primer trimestre."
-        ),
-        "fuente_label": "Bloomberg — China Lifts Green Push With Plan to Double Clean Energy by 2035",
-        "fuente_url": "https://www.bloomberg.com/news/articles/2026-04-17/china-lifts-green-push-with-plan-to-double-clean-energy-by-2035",
-    },
-    {
-        "emoji": "📡",
-        "titulo": "5G-A cubre ya 330 ciudades chinas: 4.958 millones de estaciones base operativas",
-        "cuerpo": (
-            "A cierre de marzo de 2026, China contaba con 4.958 millones de estaciones base 5G, con la "
-            "tecnología 5G-Advanced (5G-A, la evolución del 5G estándar) cubriendo 330 ciudades. Los "
-            "usuarios de Internet de las Cosas (IoT) alcanzaron los 2.948 millones —casi tres veces la "
-            "población china—. El sector de fabricación de equipos electrónicos y comunicaciones creció "
-            "un 13,6% interanual en el primer trimestre. China ya planifica el despliegue de 500.000 "
-            "nuevas estaciones 5G-A antes de 2030, mientras avanza en la investigación del 6G, previsto "
-            "como nuevo motor de crecimiento económico global a partir de esa fecha."
-        ),
-        "fuente_label": "Xinhua — China boosts digital technology in push for modernization",
-        "fuente_url": "http://www.shanghainews.net/news/279002526/china-boosts-digital-technology-in-push-for-modernization",
-    },
-    {
-        "emoji": "🏥",
-        "titulo": "IA y medicina tradicional china: quioscos de diagnóstico inteligente en el metro",
-        "cuerpo": (
-            "China ha comenzado a desplegar quioscos de diagnóstico asistido por inteligencia artificial "
-            "en estaciones de metro y puntos urbanos estratégicos, combinando tecnología biomédica de "
-            "vanguardia con principios de la Medicina Tradicional China. Estos dispositivos miden presión "
-            "arterial, frecuencia cardíaca, saturación de oxígeno y temperatura, mientras la IA aplica "
-            "criterios de la tradición médica china: análisis facial, observación de la lengua e "
-            "interpretación digital del pulso mediante sensores de presión multicapa. La Comisión Nacional "
-            "de Salud ha promovido la integración de herramientas de IA en los servicios médicos como "
-            "parte de la estrategia de salud digital nacional."
-        ),
-        "fuente_label": "Mundo Global — China: IA y Medicina Tradicional",
-        "fuente_url": "https://mundoglobal.org/china-avanza-hacia-un-modelo-de-salud-digital-que-une-ia-y-medicina-tradicional-china/",
+        "fuente_label": "CNBC — China's Moonshot AI unveils Kimi K3 that rivals OpenAI, Anthropic",
+        "fuente_url": "https://www.cnbc.com/2026/07/17/moonshot-ai-kimi-k3-model-openai-anthropic-china.html",
     },
     {
         "emoji": "🏭",
-        "titulo": "Foro Zhongguancun 2026: robots camareros y el despegue de la economía inteligente",
+        "titulo": "El 30% de las grandes empresas industriales chinas ya integran la IA en sus procesos",
         "cuerpo": (
-            "En el Foro Zhongguancun 2026 celebrado en Pekín, los robots camareros se convirtieron en "
-            "protagonistas al atender más de 100 pedidos durante el primer día del evento. La demostración "
-            "reflejó la aceleración de la 'economía inteligente' china, un concepto central del nuevo "
-            "plan quinquenal. La Xinhua informó que China está impulsando activamente la integración de "
-            "la IA en los sectores productivos reales, con el objetivo de que el 70% de la economía "
-            "incorpore IA en sus procesos para 2027, y el 90% para 2030. Las industrias de IA del país "
-            "apuntan a superar los 10 billones de yuanes en valor para 2030."
+            "Según el Ministerio de Industria y Tecnología de la Información, más del 30% de las grandes "
+            "empresas industriales del país han adoptado la inteligencia artificial en sus procesos productivos. "
+            "La innovación tecnológica se ha convertido en el principal motor del crecimiento económico chino en "
+            "2026, con la manufactura de alta tecnología liderando la expansión. En el primer semestre, el valor "
+            "de exportaciones de circuitos integrados creció un 88,7% interanual, reflejando la aceleración del "
+            "ecosistema tecnológico nacional."
         ),
-        "fuente_label": "Xinhua — China impulsa la economia inteligente",
-        "fuente_url": "https://spanish.xinhuanet.com/20260403/f57625afb3ea44fbb428d542671249c5/c.html",
+        "fuente_label": "CGTN — Tech innovation unlocks new growth momentum for China's economy",
+        "fuente_url": "https://news.cgtn.com/news/2026-07-16/Tech-innovation-unlocks-new-growth-momentum-for-China-s-economy-1OOMQp36DmM/share_amp.html",
     },
     {
-        "emoji": "🗺️",
-        "titulo": "El 15.º Plan Quinquenal (2026-2030): IA, 6G, robots y biotech como pilares del futuro",
+        "emoji": "📈",
+        "titulo": "PIB de China: +4,3% en Q2 2026, con exportaciones IA disparadas un 27%",
         "cuerpo": (
-            "El nuevo plan quinquenal chino sitúa las llamadas 'Nuevas Fuerzas Productivas de Calidad' "
-            "en el centro de su estrategia de desarrollo. Los ejes son claros: IA Plus (aplicar la IA "
-            "como infraestructura transversal a toda la economía), 6G, robótica, biotecnología y economía "
-            "de baja altitud (drones). Las industrias emergentes —circuitos integrados, robots inteligentes "
-            "y drones— suman ya casi 6 billones de yuanes y aspiran a 10 billones para 2030. El presupuesto "
-            "en Ciencia y Tecnología creció un 7,1% hasta 1,3 billones de yuanes. China no solo quiere "
-            "liderar estas tecnologías: quiere que sean el motor de su desarrollo económico de las "
-            "próximas dos décadas."
+            "La economía china creció un 4,3% interanual en el segundo trimestre de 2026. Aunque por debajo "
+            "del objetivo oficial (4,5-5%), los datos sectoriales son sólidos: la producción industrial avanzó "
+            "un 5,3% en junio (superando previsiones del 4,6%), y las ventas minoristas crecieron un 1,0% en "
+            "junio, por encima del -0,1% esperado. Las exportaciones se dispararon un 27% impulsadas por la "
+            "demanda de productos IA, y la primera mitad del año acumuló un crecimiento del 4,7% interanual."
         ),
-        "fuente_label": "China Briefing — China's Industries to Watch in 2026",
-        "fuente_url": "https://www.china-briefing.com/news/chinas-industries-to-watch-in-2026/",
+        "fuente_label": "Mundo Ejecutivo — Economía de China crece 4.3% en segundo trimestre",
+        "fuente_url": "https://mundoejecutivocdmx.com/mundo-economico/economia-china-crece-4-3-segundo-trimestre-2026/",
+    },
+    {
+        "emoji": "🚗",
+        "titulo": "Exportaciones de vehículos eléctricos +68,7% y robots industriales +18,6% en H1 2026",
+        "cuerpo": (
+            "China escala sin parar en la cadena de valor global. En el primer semestre de 2026: los vehículos "
+            "eléctricos crecieron un 68,7% interanual en exportaciones; los robots industriales exportaron por "
+            "valor de 6.290 millones de yuanes (+18,6%); los robots quirúrgicos triplicaron sus exportaciones; "
+            "y los robots cuadrúpedos chinos controlan ya el 70% del mercado mundial. China ha desarrollado más "
+            "de 400 modelos de robots humanoides, representando más de la mitad del total global. La manufactura "
+            "de equipos contribuyó cerca del 50% al crecimiento de las exportaciones industriales."
+        ),
+        "fuente_label": "TechNode — China's electric vehicle exports rise 68.7% in H1 2026",
+        "fuente_url": "https://technode.com/2026/07/14/chinas-electric-vehicle-exports-rise-68-7-in-h1-2026/",
+    },
+    {
+        "emoji": "💾",
+        "titulo": "Exportaciones de chips chinos casi se duplican en valor: +96% en el primer semestre",
+        "cuerpo": (
+            "China exportó circuitos integrados por valor de 177.280 millones de dólares en el primer semestre "
+            "de 2026, un 96% más que un año antes. El salto refleja tanto la mayor integración de chips chinos "
+            "en cadenas de suministro globales como el aumento de los precios medios, impulsado por la demanda "
+            "de chips para IA. Las turbinas eólicas y las baterías de litio también registraron exportaciones "
+            "récord: +35,6% y +37,6% respectivamente, consolidando el liderazgo chino en la economía verde."
+        ),
+        "fuente_label": "Revista Cloud — China casi duplica el valor de sus chips exportados",
+        "fuente_url": "https://revistacloud.com/china-casi-duplica-el-valor-de-sus-chips-exportados-pero-no-su-volumen",
+    },
+    {
+        "emoji": "☀️",
+        "titulo": "Hito histórico: la energía solar supera al carbón en capacidad instalada en China",
+        "cuerpo": (
+            "En 2026, China ha alcanzado un punto de inflexión sin precedentes: la capacidad instalada de "
+            "energía solar supera por primera vez a la del carbón. China concentra ya la mitad de toda la "
+            "capacidad eólica y solar del mundo, con más de 1.200 GW solares y 641 GW eólicos instalados. "
+            "Ember confirma que China lideró la expansión renovable global, concentrando más de la mitad del "
+            "aumento mundial tanto en capacidad como en generación. Un hito que marca un cambio estructural "
+            "irreversible en el sistema energético más grande del mundo."
+        ),
+        "fuente_label": "Ecoticias — China lidera la energía solar superando al carbón por primera vez en 2026",
+        "fuente_url": "https://www.ecoticias.com/energias-renovables/china-lidera-la-energia-solar-superando-al-carbon-por-primera-vez",
+    },
+    {
+        "emoji": "🛰️",
+        "titulo": "Energía solar desde el espacio: China avanza en transmisión inalámbrica de electricidad orbital",
+        "cuerpo": (
+            "China ha logrado una eficiencia del 20,8% en transmisión inalámbrica de energía a 100 metros, "
+            "cargando simultáneamente múltiples objetivos en movimiento. En la feria solar SNEC 2026 de Shanghai, "
+            "se constituyeron dos nuevas alianzas industriales para el desarrollo de energía solar espacial, con "
+            "13 miembros fundadores incluyendo GCL Technology y Trina Solar. El objetivo a largo plazo: colocar "
+            "enormes paneles solares en órbita que transmitan energía de vuelta a la Tierra mediante microondas "
+            "o láseres, revolucionando el suministro eléctrico global."
+        ),
+        "fuente_label": "CGTN — China advances space solar power breakthrough",
+        "fuente_url": "https://news.cgtn.com/news/2026-05-19/China-advances-space-solar-power-breakthrough-1NgRg7RgnpC/p.html",
+    },
+    {
+        "emoji": "🛸",
+        "titulo": "Nuevo satélite BeiDou en órbita y próxima generación del GPS chino para 2027",
+        "cuerpo": (
+            "El 10 de julio China lanzó un nuevo satélite del sistema de navegación BeiDou a bordo de un cohete "
+            "Larga Marcha-3A desde el centro de Xichang (Sichuan). La Oficina de Navegación por Satélite anunció "
+            "además una actualización en órbita del sistema para optimizar el rendimiento de varios satélites. "
+            "De cara a 2027, China planea lanzar los primeros satélites de prueba de la próxima generación "
+            "BeiDou, que operará en múltiples órbitas y ofrecerá precisión de navegación a nivel de decímetro, "
+            "superando las capacidades del GPS americano actual."
+        ),
+        "fuente_label": "CNSA — China launches new Beidou navigation satellite",
+        "fuente_url": "https://www.cnsa.gov.cn/english/n6465652/n6465653/c6802255/content.html",
+    },
+    {
+        "emoji": "🌐",
+        "titulo": "China y la Conferencia Global de Economía Digital 2026: construyendo el futuro digital",
+        "cuerpo": (
+            "Del 2 al 5 de julio, Beijing acogió la Conferencia Global de Economía Digital 2026, que reunió "
+            "a líderes tecnológicos, responsables políticos y expertos internacionales para debatir el futuro "
+            "de la economía digital. En paralelo, la Conferencia de Información Aeroespacial 2026 (16-17 julio, "
+            "Wuxi) mostró los últimos avances en teledetección satelital, sistemas integrados de navegación "
+            "BeiDou y tecnologías de computación espacial. China tiene ya más de 400 empresas privadas del "
+            "sector espacial, una cifra que el mundo occidental apenas ha comenzado a notar."
+        ),
+        "fuente_label": "CRI Español — Conferencia Global de Economía Digital 2026",
+        "fuente_url": "https://espanol.cri.cn/2026/07/02/ARTI1782972617748340",
     },
 ]
 
 
 def build_blocks():
-    today = date.today().strftime("%d de abril de %Y")
+    today = date.today().strftime("%d de julio de %Y")
     blocks = [
         callout(f"Newsletter semanal · China Al Dia · {today}", "🇨🇳"),
         p("Recopilacion de las noticias mas relevantes de China esta semana: tecnologia, economia, espacio y sociedad.", bold=False),
@@ -288,7 +246,7 @@ def build_blocks():
 
 
 def create_notion_page():
-    title = "China Al Dia — Semana 14-22 Abril 2026"
+    title = "China Al Dia — Semana 14-23 Julio 2026"
     payload = {
         "parent": {"type": "page_id", "page_id": PARENT_PAGE_ID},
         "icon": {"type": "emoji", "emoji": "🇨🇳"},
