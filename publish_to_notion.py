@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Publica la newsletter semanal de China Al Dia en Notion.
+Publica la newsletter de China Al Dia en Notion.
 Uso: NOTION_TOKEN=<token> python publish_to_notion.py
 """
 
@@ -68,6 +68,19 @@ def p_link(label, url):
                  "annotations": {"italic": True, "color": "blue"}}
             ]}}
 
+def p_links(sources):
+    """sources: list of (label, url) tuples"""
+    rich_text = [{"type": "text", "text": {"content": "Fuentes: "}}]
+    for i, (label, url) in enumerate(sources):
+        rich_text.append({
+            "type": "text",
+            "text": {"content": label, "link": {"url": url}},
+            "annotations": {"italic": True, "color": "blue"}
+        })
+        if i < len(sources) - 1:
+            rich_text.append({"type": "text", "text": {"content": " · "}})
+    return {"object": "block", "type": "paragraph", "paragraph": {"rich_text": rich_text}}
+
 def divider():
     return {"object": "block", "type": "divider", "divider": {}}
 
@@ -80,212 +93,200 @@ def quote(text):
     return {"object": "block", "type": "quote",
             "quote": {"rich_text": [{"type": "text", "text": {"content": text}}]}}
 
+def section_header(text):
+    return {"object": "block", "type": "heading_1",
+            "heading_1": {"rich_text": [{"type": "text", "text": {"content": text},
+                                         "annotations": {"color": "blue_background"}}]}}
+
 
 NOTICIAS = [
+    # ─── PORTADA ──────────────────────────────────────────────────────────────
     {
-        "emoji": "⚡",
-        "titulo": "China supera por primera vez el 40 % de generación eléctrica renovable — un hito histórico",
-        "cuerpo": (
-            "En el primer semestre de 2026, las energías renovables representaron el 41,2 % de la "
-            "generación eléctrica de China, superando por primera vez en la historia la barrera del "
-            "40 %. La participación del carbón cayó al 49,7 %, también por primera vez por debajo del "
-            "50 % en un semestre completo. Durante ese período, el país incorporó 117 GW de nueva "
-            "potencia renovable, equivalente al 73,9 % de toda la nueva capacidad eléctrica instalada. "
-            "La capacidad renovable total alcanzó 2.455 GW, más del 60 % del parque nacional de generación."
-        ),
-        "fuente_label": "Energías Renovables — China supera el 40% de generación renovable",
-        "fuente_url": "https://www.energias-renovables.com/panorama/china-supera-por-primera-vez-el-40-20260803",
-    },
-    {
-        "emoji": "🤖",
-        "titulo": "Conferencia Mundial de IA en Shanghai: más de 400 modelos de robots humanoides en exhibición",
-        "cuerpo": (
-            "Las principales empresas tecnológicas chinas exhibieron cientos de productos de vanguardia "
-            "en la Conferencia Mundial de IA celebrada en Shanghai del 17 al 20 de julio, en medio de "
-            "la intensa rivalidad tecnológica entre EE.UU. y China. Las empresas chinas han desarrollado "
-            "más de 400 modelos de robots humanoides, más de la mitad del total mundial. El foro reunió "
-            "a delegados de más de 80 países y marcó el inicio de la que puede ser la mayor ofensiva "
-            "exportadora de tecnología china de la historia."
-        ),
-        "fuente_label": "ABC News — Shanghai science forum shows China's AI and robotics advances",
-        "fuente_url": "https://abcnews.com/International/wireStory/shanghai-science-forum-photos-show-chinas-ai-robotics-134935594",
-    },
-    {
-        "emoji": "💾",
-        "titulo": "China construye su segunda fábrica de chips de memoria tras su salida a bolsa de 8.600 millones",
-        "cuerpo": (
-            "ChangXin Memory Technologies (CXMT) anunció la construcción de su segunda fábrica de chips "
-            "de memoria, apenas días después de completar su salida a bolsa por 8.600 millones de dólares "
-            "—una de las mayores IPO tecnológicas del año en Asia—. La nueva planta refuerza la apuesta "
-            "de China por la autosuficiencia en semiconductores. CXMT ya fabrica chips DRAM comparables "
-            "a los de Samsung y SK Hynix de hace dos generaciones, a un precio significativamente menor."
-        ),
-        "fuente_label": "El Nacional Cat — Fábrica de chips para la era de la robótica",
-        "fuente_url": "https://www.elnacional.cat/es/tecnologia/futuro-ia-sera-made-in-china-preparan-fabrica-chips-era-robotica_1677494_102.html",
-    },
-    {
-        "emoji": "🦾",
-        "titulo": "Revolución robótica en APEC: delegados visitan la mayor exposición de robots de China",
-        "cuerpo": (
-            "El 26 de julio, delegados de la APEC Digital Week visitaron en Chengdu una empresa china "
-            "de robótica con más de 70 modelos de robots industriales y colaborativos con IA incorporada. "
-            "La demostración incluyó robots de precisión submilimétrica para cirugía remota y cuadrúpedos "
-            "para inspección en entornos peligrosos. China aspira a que el sector robótico aporte "
-            "10 billones de yuanes a la economía para 2030."
-        ),
-        "fuente_label": "CGTN — China's robot revolution on show for APEC delegates in Chengdu",
-        "fuente_url": "https://news.cgtn.com/news/2026-07-26/China-s-robot-revolution-on-show-for-APEC-delegates-in-Chengdu-1P66b1P7rdm/p.html",
-    },
-    {
-        "emoji": "🌐",
-        "titulo": "México y China estrechan lazos científicos en IA, robótica y semiconductores",
-        "cuerpo": (
-            "El 23 de julio, la Secihti de México sostuvo una reunión con el embajador de China para "
-            "impulsar proyectos conjuntos de inteligencia artificial, robótica, electromovilidad y "
-            "semiconductores. El acuerdo incluye programas de movilidad para jóvenes investigadores, "
-            "laboratorios compartidos y desarrollo conjunto de patentes. Es parte de una tendencia más "
-            "amplia: en 2026, más de 40 países de Latinoamérica, África y Asia han firmado acuerdos "
-            "de cooperación tecnológica con China."
-        ),
-        "fuente_label": "La Jornada — México y China impulsan alianza en IA, robótica y electromovilidad",
-        "fuente_url": "https://www.jornada.com.mx/noticia/2026/07/23/ciencias/mexico-y-china-impulsan-alianza-en-inteligencia-artificial-robotica-y-electromovilidad",
-    },
-    {
+        "seccion": "🗞️  PORTADA DEL DÍA",
         "emoji": "📈",
-        "titulo": "Exportaciones de energía limpia se disparan: aerogeneradores +35,6 %, baterías +37,6 %, vehículos +65,3 %",
+        "titulo": "Exportaciones de China superan previsiones en julio: +23,9 % impulsadas por el auge global de la IA",
         "cuerpo": (
-            "Los datos del primer semestre de 2026 revelan un crecimiento explosivo en las exportaciones "
-            "chinas de tecnología verde. Las ventas al exterior de aerogeneradores aumentaron un 35,6 % "
-            "interanual, las de baterías de litio un 37,6 %, y las de automóviles alcanzaron 5,096 "
-            "millones de unidades, un alza del 65,3 %. Además, los astilleros chinos captaron 1.131 de "
-            "los 1.481 buques encargados en todo el mundo, aproximadamente el 72 % del mercado global "
-            "de construcción naval. China consolida su dominio en las industrias del futuro."
+            "China publicó hoy sus datos de comercio exterior de julio: las exportaciones crecieron un "
+            "23,9 % interanual, alcanzando los 397.850 millones de dólares y superando la previsión del "
+            "mercado del 22,88 %. Las importaciones subieron un 27,5 % hasta 285.350 millones. El superávit "
+            "comercial se situó en 112.500 millones de dólares. El motor fue la demanda global de productos "
+            "de alta tecnología vinculados a la infraestructura de IA —chips, servidores, baterías y "
+            "componentes de energía limpia—. El dato de julio modera respecto al récord del +27 % de junio, "
+            "el ritmo más rápido desde octubre de 2021."
         ),
-        "fuente_label": "Tricontinental — Noticias de China No. 32",
-        "fuente_url": "https://thetricontinental.org/es/asia/noticias-de-china-no-32/",
+        "fuentes": [
+            ("CNBC", "https://www.cnbc.com/2026/08/07/china-july-trade-exports-imports-surplus-imbalance-tariffs-.html"),
+            ("Reuters / Investing.com", "https://ca.investing.com/news/economy-news/chinas-july-exports-beat-expectations-on-robust-hightech-demand-4785325"),
+            ("SCMP", "https://www.scmp.com/economy/economic-indicators/article/3363236/chinas-exports-hold-firm-july-despite-trade-and-geopolitical-headwinds"),
+        ],
+    },
+    # ─── TECNOLOGÍA E IA ──────────────────────────────────────────────────────
+    {
+        "seccion": "🤖  TECNOLOGÍA E INTELIGENCIA ARTIFICIAL",
+        "emoji": "🌐",
+        "titulo": "China crea la WAICO: nueva organización internacional de IA con 29 países fundadores",
+        "cuerpo": (
+            "Durante la Conferencia Mundial de IA (WAIC 2026) en Shanghái, el presidente Xi Jinping "
+            "anunció la World Artificial Intelligence Cooperation Organization (WAICO), la primera "
+            "organización internacional de gobernanza en IA, con sede en Shanghái. Los 29 países fundadores "
+            "incluyen Brasil, Rusia, Sudáfrica, Indonesia y Pakistán. La conferencia reunió a más de "
+            "1.100 empresas y mostró más de 3.000 productos —300 por primera vez en el mundo— y consolida "
+            "a China como centro de la gobernanza global de la IA y alternativa a los marcos occidentales."
+        ),
+        "fuentes": [
+            ("RadioNodo AI", "https://radionodo.ai/nace-waico-china-crea-una-nueva-organizacion-internacional-de-inteligencia-artificial/"),
+            ("La Ecuación Digital", "https://www.laecuaciondigital.com/tecnologias/inteligencia-artificial/china-gobernanza-global-ia-waic/"),
+            ("Mundo Global", "https://mundoglobal.org/13-claves-para-entender-la-waic-2026-la-conferencia-con-la-que-china-quiere-mostrar-el-futuro-de-la-inteligencia-artificial/"),
+        ],
     },
     {
-        "emoji": "💼",
-        "titulo": "El comercio de servicios de China crece un 8,3 % en el primer semestre",
+        "seccion": None,
+        "emoji": "🔬",
+        "titulo": "Xi Jinping subraya la innovación científica como motor de la modernización china",
         "cuerpo": (
-            "Según datos del Ministerio de Comercio publicados el 5 de agosto, el comercio de servicios "
-            "de China se expandió un 8,3 % interanual en el primer semestre de 2026. Las exportaciones "
-            "de servicios de viajes lideraron el crecimiento con un +31,1 %, reflejo de la recuperación "
-            "del turismo internacional. Los servicios tecnológicos —consultoría digital, software y "
-            "propiedad intelectual— crecieron un 14,2 %, convirtiéndose en el segundo motor de ingresos."
+            "El presidente Xi Jinping reiteró ayer que la innovación científico-tecnológica es la clave "
+            "para la modernización del país, en el marco del Plan Quinquenal 2026-2030 que busca convertir "
+            "a China en una potencia científica global para 2035. Xi llamó a integrar mejor la investigación "
+            "universitaria con la industria y acelerar la formación de nuevas generaciones de científicos de "
+            "élite. El período 2026-2030 es descrito como 'fase crucial' para alcanzar la autosuficiencia "
+            "en semiconductores, aviación, biotecnología y computación cuántica."
         ),
-        "fuente_label": "China.org.cn — Comercio de servicios crece 8,3% en el primer semestre",
-        "fuente_url": "http://spanish.china.org.cn/txt/2026-08/05/content_118634357.htm",
+        "fuentes": [
+            ("CGTN", "https://news.cgtn.com/news/2026-08-06/Xi-underscores-sci-tech-innovation-to-advance-China-s-modernization-1PmbnQr21fW/p.html"),
+            ("Xinhua ES", "http://spanish.xinhuanet.com/20260708/351fa1e6395b401dace4f81c1f581872/c.html"),
+        ],
     },
     {
-        "emoji": "🗺️",
-        "titulo": "La Iniciativa Cinturón y Ruta marca récord: 126.400 millones en el primer semestre",
+        "seccion": None,
+        "emoji": "🦾",
+        "titulo": "Producción de robots humanoides superará 100.000 unidades en 2026",
         "cuerpo": (
-            "Un análisis cifra la participación de China en la Iniciativa Cinturón y Ruta (BRI) en el "
-            "primer semestre de 2026 en 49.800 millones en inversiones y 76.500 millones en contratos "
-            "de construcción, totalizando 126.400 millones de dólares en 186 proyectos. Los sectores "
-            "con mayor crecimiento son energía limpia, minería crítica y nuevas tecnologías (5G, centros "
-            "de datos, inteligencia artificial). Las empresas más activas fueron PowerChina, State "
-            "Construction Engineering y China Communications Construction Corporation."
+            "Según el Ministerio de Industria y Tecnología, la producción de robots humanoides en China "
+            "superará las 100.000 unidades en 2026, el mayor volumen mundial. El gobierno fijó el objetivo "
+            "de 10.000 robots humanoides en uso comercial antes de que termine el año —en manufactura, "
+            "logística, sanidad y emergencias—. Empresas como AGIBOT (A3 Ultra), Unitree Robotics, Engine AI "
+            "y Galbot lideran el sector. Más de la mitad de los 400+ modelos de robots humanoides existentes "
+            "en el mundo son de origen chino."
         ),
-        "fuente_label": "Green Finance & Development Center — BRI 2026 H1",
-        "fuente_url": "https://greenfdc.org/chinas-investment-and-construction-engagement-in-the-belt-and-road-initiative-bri-2026-h1/",
+        "fuentes": [
+            ("CGTN", "https://news.cgtn.com/news/2026-07-08/China-s-output-of-humanoid-robots-set-to-exceed-100-000-in-2026-1OBFKOQ9WUg/p.html"),
+            ("Caixin Global", "https://www.caixinglobal.com/2026-06-10/china-targets-10000-humanoid-robots-in-commercial-use-by-end-2026-102452656.html"),
+            ("Interesting Engineering", "https://interestingengineering.com/ai-robotics/china-agibot-humanoid-robot"),
+        ],
+    },
+    # ─── ESPACIO Y CIENCIA ────────────────────────────────────────────────────
+    {
+        "seccion": "🛰️  ESPACIO Y CIENCIA",
+        "emoji": "🌕",
+        "titulo": "Chang'e-6 revoluciona la cartografía lunar: primer mapa geológico de la cara oculta",
+        "cuerpo": (
+            "China presentó la versión más completa del mapa geológico global de la Luna, actualizado "
+            "con las muestras inéditas de la misión Chang'e-6 —la primera en traer material de la cara "
+            "oculta del satélite—. El nuevo mapa ofrece resolución sin precedentes en zonas jamás exploradas "
+            "in situ y corrige errores en modelos anteriores basados solo en teledetección. El logro "
+            "posiciona a China como la principal potencia en exploración lunar activa de cara a las "
+            "misiones tripuladas previstas antes de 2030."
+        ),
+        "fuentes": [
+            ("Canal 26", "https://www.canal26.com/ciencia-y-espacio/2026/08/06/la-mision-change-6-permitio-obtener-las-primeras-muestras-de-la-cara-oculta-de-la-luna-y-mejorar-su-mapa-geologico/"),
+            ("Astroaventura", "https://astroaventura.net/aeroespacial/objetivo-2030-los-grandes-avances-de-china-para-llevar-astronautas-a-caminar-sobre-la-superficie-de-la-luna/"),
+        ],
     },
     {
-        "emoji": "🧊",
-        "titulo": "La estación antártica Qinling alcanza el 50 % de energía renovable en plena noche polar",
+        "seccion": None,
+        "emoji": "⚛️",
+        "titulo": "Zuchongzhi 3.0 y satélites QKD: China a la vanguardia de la computación cuántica",
         "cuerpo": (
-            "La estación Qinling, el puesto antártico más moderno de China, logró esta semana un hito "
-            "en eficiencia energética: las energías renovables representan ya el 50 % de su suministro "
-            "eléctrico incluso durante los meses de oscuridad polar. El sistema combina paneles "
-            "fotovoltaicos de alta eficiencia, almacenamiento en baterías y aerogeneradores de pequeña "
-            "potencia diseñados para resistir temperaturas de -50 °C. El logro sirve de banco de pruebas "
-            "para tecnologías de energía verde en condiciones extremas."
+            "El ordenador cuántico chino Zuchongzhi 3.0 demostró en 2026 una ventaja computacional que "
+            "deja a los superordenadores convencionales más rápidos del mundo a años de distancia. "
+            "Simultáneamente, China despliega una constelación de 4 satélites QKD en órbita baja para "
+            "comunicaciones 'inhackeables' basadas en las leyes de la física cuántica. El programa cuántico "
+            "avanza en paralelo al de semiconductores como estrategia dual para garantizar la soberanía "
+            "tecnológica independientemente del acceso a chips extranjeros."
         ),
-        "fuente_label": "People's Daily — Estación Qinling logra avance en energía verde",
-        "fuente_url": "http://spanish.peopledaily.com.cn/n3/2026/0805/c92121-20485504.html",
+        "fuentes": [
+            ("Tech Biz Hub", "https://techbizhub.com/news/china-tech-advancement-2026-global-innovation"),
+            ("Medium", "https://medium.com/@harshduhan/the-great-eclipse-how-chinas-2026-breakthroughs-are-casting-a-shadow-over-the-west-4d1e326476a7"),
+        ],
+    },
+    # ─── ECONOMÍA ─────────────────────────────────────────────────────────────
+    {
+        "seccion": "💼  ECONOMÍA Y MERCADOS",
+        "emoji": "📊",
+        "titulo": "Bolsa de Shanghái cierra al alza: índice compuesto en 3.911 puntos (+0,27 %)",
+        "cuerpo": (
+            "El Índice Compuesto de Shanghái cerró hoy en 3.911 puntos, ganando un 0,27 % respecto a "
+            "la sesión anterior, impulsado por los sólidos datos comerciales de julio. El mercado "
+            "bursátil chino mantiene tendencia alcista en 2026 gracias a la narrativa de la IA, el "
+            "liderazgo en robótica y las exportaciones récord. El sector tecnológico y de semiconductores "
+            "ha liderado las ganancias este año."
+        ),
+        "fuentes": [
+            ("Trading Economics", "https://tradingeconomics.com/china/stock-market"),
+        ],
     },
     {
-        "emoji": "🛰️",
-        "titulo": "El proyecto solar espacial chino: una central de 100.000 GWh al año en órbita geoestacionaria",
+        "seccion": None,
+        "emoji": "🎬",
+        "titulo": "China-Brasil: diplomacia cultural en el V Festival de Cine del Año Cultural Bilateral",
         "cuerpo": (
-            "China avanza en el proyecto 'Tres Gargantas en el espacio', una central solar en órbita "
-            "geoestacionaria a 36.000 km de altitud que podría generar hasta 100.000 millones de kWh "
-            "anuales —similar al consumo total de países como los Países Bajos—. A diferencia de los "
-            "paneles terrestres, los satélites reciben luz solar las 24 horas del día, sin nubes ni "
-            "ciclos noche-día. El plan prevé lanzar el primer satélite de pruebas en 2028 y tener "
-            "una planta comercial plenamente operativa hacia 2050."
+            "En el marco del Año Cultural China-Brasil 2026, se celebró hoy en Río de Janeiro la "
+            "ceremonia de clausura del V Festival de Cine Chino-Brasileño, uno de los intercambios "
+            "culturales sur-sur más activos del mundo. La iniciativa forma parte de la estrategia "
+            "de diplomacia cultural que China despliega en Latinoamérica, África y Asia, con más de "
+            "40 acuerdos de cooperación tecnológica y cultural firmados en 2026."
         ),
-        "fuente_label": "El Español — China construye paneles solares en el espacio a 36.000 km",
-        "fuente_url": "https://www.elespanol.com/ciencia/20260413/china-cambia-estrategia-construye-paneles-solares-espacio-kilometros-trabajan-horas-dia/1003744201225_0.html",
+        "fuentes": [
+            ("China Boss News", "https://shannonbrandao.substack.com/sitemap/2026"),
+        ],
     },
+    # ─── ENERGÍA ──────────────────────────────────────────────────────────────
     {
-        "emoji": "💊",
-        "titulo": "China firma acuerdos de licencias biotecnológicas por 60.000 millones en el primer trimestre",
+        "seccion": "⚡  ENERGÍA Y MEDIO AMBIENTE",
+        "emoji": "☀️",
+        "titulo": "Plantas CSP: 24 en operación, 26 en construcción, costes reducidos a la mitad en una década",
         "cuerpo": (
-            "Mientras el mundo miraba a DeepSeek y los robots humanoides, China construía en silencio "
-            "una potencia farmacéutica global. Las empresas biotech chinas firmaron acuerdos de licencia "
-            "transfronteriza por un valor récord de 60.000 millones de dólares solo en el primer "
-            "trimestre de 2026. China ya no quiere fabricar medicamentos baratos: quiere cobrar por "
-            "las moléculas, las patentes y la investigación. El país ha captado el 39 % de los ensayos "
-            "clínicos globales, más que EE.UU. y la UE combinados."
+            "China opera ya 24 plantas de energía solar de concentración (CSP) con otras 26 en "
+            "construcción, sumando 3,2 GW de capacidad total. Los costes de construcción se han reducido "
+            "a la mitad en una década, hasta los 15.000 yuanes (~2.200 dólares) por kilovatio. La CSP "
+            "complementa la solar fotovoltaica y la eólica garantizando suministro firme en horas "
+            "nocturnas y días nublados, resolviendo el principal talón de Aquiles de las energías "
+            "intermitentes y abriendo camino a la exportación de esta tecnología."
         ),
-        "fuente_label": "Gizmodo ES — China y su silenciosa exportación biotecnológica",
-        "fuente_url": "https://es.gizmodo.com/todos-miraban-a-deepseek-y-a-los-robots-humanoides-pero-china-estaba-preparando-una-exportacion-mucho-mas-silenciosa-ahora-sus-medicamentos-empiezan-a-llenar-las-carteras-de-las-farmaceuticas-occide-2000249516",
-    },
-    {
-        "emoji": "🏥",
-        "titulo": "IA y medicina tradicional china: los quioscos de diagnóstico inteligente llegan al metro",
-        "cuerpo": (
-            "China ha comenzado a desplegar quioscos de diagnóstico asistido por inteligencia artificial "
-            "en estaciones de metro y puntos urbanos, combinando biomedicina avanzada con la Medicina "
-            "Tradicional China (MTC). Los dispositivos miden presión arterial, frecuencia cardíaca, "
-            "saturación de oxígeno y temperatura; la IA aplica simultáneamente criterios de la MTC: "
-            "análisis facial, observación de lengua e interpretación digital del pulso. El objetivo "
-            "es detectar enfermedades crónicas de forma precoz, descargando presión de los centros "
-            "de salud primaria."
-        ),
-        "fuente_label": "Mundo Global — China: IA y Medicina Tradicional",
-        "fuente_url": "https://mundoglobal.org/china-avanza-hacia-un-modelo-de-salud-digital-que-une-ia-y-medicina-tradicional-china/",
-    },
-    {
-        "emoji": "🌏",
-        "titulo": "China anuncia contramedidas frente a las restricciones tecnológicas de EE.UU.",
-        "cuerpo": (
-            "El 5 de agosto, el gobierno chino anunció 'contramedidas necesarias' en respuesta a las "
-            "últimas restricciones tecnológicas impuestas por Washington, que incluyeron robots "
-            "humanoides y cuadrúpedos chinos en su lista de importaciones prohibidas por 'seguridad "
-            "nacional'. Pekín respondió con controles a la exportación de drones de doble uso hacia "
-            "EE.UU. e inició una investigación de seguridad nacional sobre equipos de imagen de "
-            "oficina importados. Analistas señalan que China mantiene ventajas estructurales en "
-            "fabricación que limitan la eficacia de estas sanciones."
-        ),
-        "fuente_label": "Cubadebate — China anuncia contramedidas ante restricciones tecnológicas de EE.UU.",
-        "fuente_url": "http://www.cubadebate.cu/noticias/2026/08/05/china-anuncia-contramedidas-necesarias-ante-restricciones-tecnologicas-de-estados-unidos/",
+        "fuentes": [
+            ("Tricontinental", "https://thetricontinental.org/es/asia/noticias-de-china-no-32/"),
+            ("The Conversation", "https://theconversation.com/2026-2030-cinco-anos-en-los-que-china-busca-consolidar-su-poder-global-mediante-la-tecnologia-la-autosuficiencia-y-la-proyeccion-exterior-278464"),
+        ],
     },
 ]
 
 
 def build_blocks():
-    today = date.today().strftime("%d de %B de %Y")
+    today = date.today().strftime("%-d de %B de %Y")
     blocks = [
-        callout(f"Newsletter semanal · China Al Dia · {today}", "🇨🇳"),
-        p("Recopilacion de las noticias mas relevantes de China esta semana: tecnologia, economia, espacio y sociedad.", bold=False),
+        callout(f"Newsletter diaria · China Al Día · {today}", "🇨🇳"),
+        p("Recopilación de las noticias más relevantes de China hoy: tecnología, economía, espacio y sociedad."),
         divider(),
     ]
 
+    current_section = None
     for n in NOTICIAS:
+        if n.get("seccion") and n["seccion"] != current_section:
+            current_section = n["seccion"]
+            blocks.append(section_header(current_section))
+
         blocks.append(h2(f"{n['emoji']}  {n['titulo']}"))
         blocks.append(p(n["cuerpo"]))
-        blocks.append(p_link(n["fuente_label"], n["fuente_url"]))
+        blocks.append(p_links(n["fuentes"]))
         blocks.append(divider())
 
-    blocks.append(p("China al Dia · Newsletter semanal en espanol · Fuentes internacionales verificadas", bold=True))
+    blocks.append(p("China al Día · Newsletter diaria en español · Fuentes internacionales verificadas", bold=True))
     return blocks
 
 
 def create_notion_page():
-    title = "China Al Dia — Semana 28 Jul - 6 Ago 2026"
+    today = date.today()
+    title = f"China Al Día — {today.strftime('%-d de %B de %Y')}"
     payload = {
         "parent": {"type": "page_id", "page_id": PARENT_PAGE_ID},
         "icon": {"type": "emoji", "emoji": "🇨🇳"},
@@ -298,12 +299,12 @@ def create_notion_page():
         "children": build_blocks(),
     }
 
-    print(f"Creando pagina en Notion: '{title}'")
+    print(f"Creando página en Notion: '{title}'")
     print(f"Noticias incluidas: {len(NOTICIAS)}")
     result = notion_request("POST", "/pages", payload)
     page_id = result.get("id", "").replace("-", "")
     page_url = result.get("url", f"https://www.notion.so/{page_id}")
-    print(f"\nListo!")
+    print(f"\n¡Listo!")
     print(f"URL: {page_url}")
     return page_url
 
