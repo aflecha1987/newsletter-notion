@@ -82,186 +82,141 @@ def quote(text):
 
 
 NOTICIAS = [
-    {
-        "emoji": "⚡",
-        "titulo": "China supera por primera vez el 40 % de generación eléctrica renovable — un hito histórico",
-        "cuerpo": (
-            "En el primer semestre de 2026, las energías renovables representaron el 41,2 % de la "
-            "generación eléctrica de China, superando por primera vez en la historia la barrera del "
-            "40 %. La participación del carbón cayó al 49,7 %, también por primera vez por debajo del "
-            "50 % en un semestre completo. Durante ese período, el país incorporó 117 GW de nueva "
-            "potencia renovable, equivalente al 73,9 % de toda la nueva capacidad eléctrica instalada. "
-            "La capacidad renovable total alcanzó 2.455 GW, más del 60 % del parque nacional de generación."
-        ),
-        "fuente_label": "Energías Renovables — China supera el 40% de generación renovable",
-        "fuente_url": "https://www.energias-renovables.com/panorama/china-supera-por-primera-vez-el-40-20260803",
-    },
+    # ── SEMANA 4-11 AGO 2026 ──────────────────────────────────────────────────
     {
         "emoji": "🤖",
-        "titulo": "Conferencia Mundial de IA en Shanghai: más de 400 modelos de robots humanoides en exhibición",
+        "titulo": "La IA china crea una 'zona de muerte' para los fabricantes de modelos de EE.UU.",
         "cuerpo": (
-            "Las principales empresas tecnológicas chinas exhibieron cientos de productos de vanguardia "
-            "en la Conferencia Mundial de IA celebrada en Shanghai del 17 al 20 de julio, en medio de "
-            "la intensa rivalidad tecnológica entre EE.UU. y China. Las empresas chinas han desarrollado "
-            "más de 400 modelos de robots humanoides, más de la mitad del total mundial. El foro reunió "
-            "a delegados de más de 80 países y marcó el inicio de la que puede ser la mayor ofensiva "
-            "exportadora de tecnología china de la historia."
+            "En la primera semana de agosto, las grandes tecnologicas chinas lanzaron una avalancha de "
+            "modelos de inteligencia artificial que igualan o superan a los principales sistemas "
+            "estadounidenses, a un coste significativamente menor. Alibaba presento Qwen3.8-Max, que "
+            "segun benchmarks independientes iguala o supera al Claude Opus de Anthropic. Moonshot AI "
+            "lanzo Kimi K3, comparable a las opciones mas caras de EE.UU. pero construido con un "
+            "presupuesto mucho mas reducido. ByteDance, DeepSeek y Z.ai tambien presentaron sus ultimos "
+            "modelos. Bloomberg titulo: 'China's AI Blitz Creates Death Zone for Rival US Model Makers'. "
+            "La aceleracion china en IA es la noticia tecnologica mas importante del verano de 2026."
         ),
-        "fuente_label": "ABC News — Shanghai science forum shows China's AI and robotics advances",
-        "fuente_url": "https://abcnews.com/International/wireStory/shanghai-science-forum-photos-show-chinas-ai-robotics-134935594",
-    },
-    {
-        "emoji": "💾",
-        "titulo": "China construye su segunda fábrica de chips de memoria tras su salida a bolsa de 8.600 millones",
-        "cuerpo": (
-            "ChangXin Memory Technologies (CXMT) anunció la construcción de su segunda fábrica de chips "
-            "de memoria, apenas días después de completar su salida a bolsa por 8.600 millones de dólares "
-            "—una de las mayores IPO tecnológicas del año en Asia—. La nueva planta refuerza la apuesta "
-            "de China por la autosuficiencia en semiconductores. CXMT ya fabrica chips DRAM comparables "
-            "a los de Samsung y SK Hynix de hace dos generaciones, a un precio significativamente menor."
-        ),
-        "fuente_label": "El Nacional Cat — Fábrica de chips para la era de la robótica",
-        "fuente_url": "https://www.elnacional.cat/es/tecnologia/futuro-ia-sera-made-in-china-preparan-fabrica-chips-era-robotica_1677494_102.html",
-    },
-    {
-        "emoji": "🦾",
-        "titulo": "Revolución robótica en APEC: delegados visitan la mayor exposición de robots de China",
-        "cuerpo": (
-            "El 26 de julio, delegados de la APEC Digital Week visitaron en Chengdu una empresa china "
-            "de robótica con más de 70 modelos de robots industriales y colaborativos con IA incorporada. "
-            "La demostración incluyó robots de precisión submilimétrica para cirugía remota y cuadrúpedos "
-            "para inspección en entornos peligrosos. China aspira a que el sector robótico aporte "
-            "10 billones de yuanes a la economía para 2030."
-        ),
-        "fuente_label": "CGTN — China's robot revolution on show for APEC delegates in Chengdu",
-        "fuente_url": "https://news.cgtn.com/news/2026-07-26/China-s-robot-revolution-on-show-for-APEC-delegates-in-Chengdu-1P66b1P7rdm/p.html",
+        "fuente_label": "Bloomberg — China's AI Blitz Creates 'Death Zone' for Rival US Model Makers",
+        "fuente_url": "https://www.bloomberg.com/news/articles/2026-08-04/china-s-ai-blitz-creates-death-zone-for-rival-us-model-makers",
     },
     {
         "emoji": "🌐",
-        "titulo": "México y China estrechan lazos científicos en IA, robótica y semiconductores",
+        "titulo": "China lanza la WAICO: nueva organizacion internacional de gobernanza de IA con 29 paises fundadores",
         "cuerpo": (
-            "El 23 de julio, la Secihti de México sostuvo una reunión con el embajador de China para "
-            "impulsar proyectos conjuntos de inteligencia artificial, robótica, electromovilidad y "
-            "semiconductores. El acuerdo incluye programas de movilidad para jóvenes investigadores, "
-            "laboratorios compartidos y desarrollo conjunto de patentes. Es parte de una tendencia más "
-            "amplia: en 2026, más de 40 países de Latinoamérica, África y Asia han firmado acuerdos "
-            "de cooperación tecnológica con China."
+            "Xi Jinping anuncio en la apertura de la WAIC 2026 (17-20 de julio, Shanghai) la creacion de "
+            "la World Artificial Intelligence Cooperation Organization (WAICO), una nueva organizacion "
+            "internacional para la gobernanza y cooperacion global en IA. Los 29 paises fundadores "
+            "incluyen Brasil, Rusia, Sudafrica, Indonesia, Pakistan y varias naciones del bloque BRICS "
+            "y OCS. EE.UU. y los principales paises europeos occidentales no participaron. En los "
+            "proximos cinco anos, China proporcionara 5.000 cuotas para programas de intercambio y "
+            "establecera centros de cooperacion con la ASEAN, la Liga Arabe, la Union Africana, CELAC y BRICS."
         ),
-        "fuente_label": "La Jornada — México y China impulsan alianza en IA, robótica y electromovilidad",
-        "fuente_url": "https://www.jornada.com.mx/noticia/2026/07/23/ciencias/mexico-y-china-impulsan-alianza-en-inteligencia-artificial-robotica-y-electromovilidad",
+        "fuente_label": "Radionodo AI — Nace WAICO: China crea nueva organización internacional de IA",
+        "fuente_url": "https://radionodo.ai/nace-waico-china-crea-una-nueva-organizacion-internacional-de-inteligencia-artificial/",
+    },
+    {
+        "emoji": "🦾",
+        "titulo": "Shanghai Electric despliega robots humanoides de nueva generacion en la WAIC 2026",
+        "cuerpo": (
+            "Shanghai Electric presento en la WAIC 2026 su linea de robots humanoides SUYUAN y TUOYUAN, "
+            "con capacidades avanzadas de manipulacion y movilidad integradas con modelos de IA a gran "
+            "escala. Ademas, lanzo 51 modelos y agentes de IA bajo la serie StarCloud Intelligent "
+            "Manufacturing. El evento confirmo que China lidera globalmente en humanoides: mas de 400 "
+            "modelos han sido desarrollados por empresas chinas, mas de la mitad del total mundial. Las "
+            "fabricas chinas mas avanzadas ya operan con mas de 3.000 robots industriales sincronizados "
+            "mediante IA, IoT y conectividad 5G."
+        ),
+        "fuente_label": "DiarioBitcoin — Shanghai Electric en WAIC 2026",
+        "fuente_url": "https://www.diariobitcoin.com/tecnologia/shanghai-electric-despliega-robots-humanoides-y-fabricas-inteligentes-en-waic-2026/",
     },
     {
         "emoji": "📈",
-        "titulo": "Exportaciones de energía limpia se disparan: aerogeneradores +35,6 %, baterías +37,6 %, vehículos +65,3 %",
+        "titulo": "Comercio exterior de China crece un 17,3% en los primeros 7 meses de 2026",
         "cuerpo": (
-            "Los datos del primer semestre de 2026 revelan un crecimiento explosivo en las exportaciones "
-            "chinas de tecnología verde. Las ventas al exterior de aerogeneradores aumentaron un 35,6 % "
-            "interanual, las de baterías de litio un 37,6 %, y las de automóviles alcanzaron 5,096 "
-            "millones de unidades, un alza del 65,3 %. Además, los astilleros chinos captaron 1.131 de "
-            "los 1.481 buques encargados en todo el mundo, aproximadamente el 72 % del mercado global "
-            "de construcción naval. China consolida su dominio en las industrias del futuro."
+            "En los primeros siete meses de 2026, las exportaciones e importaciones chinas sumaron "
+            "30,13 billones de yuanes, con un crecimiento interanual del 17,3 %. Solo en julio, el "
+            "comercio exterior alcanzo los 4,66 billones de yuanes (+19,2 % interanual). Las "
+            "exportaciones de productos de alta tecnologia crecieron mas de un 50 % en julio, aportando "
+            "casi el 60 % del incremento total. Los vehiculos electricos, las baterias de litio y las "
+            "turbinas eolicas continuan siendo los grandes motores. El comercio con los paises de la "
+            "Iniciativa Cinturon y Ruta crecio un 15,5 %, mientras que los intercambios con otras "
+            "economias de la APEC aumentaron un 21 %."
         ),
-        "fuente_label": "Tricontinental — Noticias de China No. 32",
-        "fuente_url": "https://thetricontinental.org/es/asia/noticias-de-china-no-32/",
-    },
-    {
-        "emoji": "💼",
-        "titulo": "El comercio de servicios de China crece un 8,3 % en el primer semestre",
-        "cuerpo": (
-            "Según datos del Ministerio de Comercio publicados el 5 de agosto, el comercio de servicios "
-            "de China se expandió un 8,3 % interanual en el primer semestre de 2026. Las exportaciones "
-            "de servicios de viajes lideraron el crecimiento con un +31,1 %, reflejo de la recuperación "
-            "del turismo internacional. Los servicios tecnológicos —consultoría digital, software y "
-            "propiedad intelectual— crecieron un 14,2 %, convirtiéndose en el segundo motor de ingresos."
-        ),
-        "fuente_label": "China.org.cn — Comercio de servicios crece 8,3% en el primer semestre",
-        "fuente_url": "http://spanish.china.org.cn/txt/2026-08/05/content_118634357.htm",
-    },
-    {
-        "emoji": "🗺️",
-        "titulo": "La Iniciativa Cinturón y Ruta marca récord: 126.400 millones en el primer semestre",
-        "cuerpo": (
-            "Un análisis cifra la participación de China en la Iniciativa Cinturón y Ruta (BRI) en el "
-            "primer semestre de 2026 en 49.800 millones en inversiones y 76.500 millones en contratos "
-            "de construcción, totalizando 126.400 millones de dólares en 186 proyectos. Los sectores "
-            "con mayor crecimiento son energía limpia, minería crítica y nuevas tecnologías (5G, centros "
-            "de datos, inteligencia artificial). Las empresas más activas fueron PowerChina, State "
-            "Construction Engineering y China Communications Construction Corporation."
-        ),
-        "fuente_label": "Green Finance & Development Center — BRI 2026 H1",
-        "fuente_url": "https://greenfdc.org/chinas-investment-and-construction-engagement-in-the-belt-and-road-initiative-bri-2026-h1/",
-    },
-    {
-        "emoji": "🧊",
-        "titulo": "La estación antártica Qinling alcanza el 50 % de energía renovable en plena noche polar",
-        "cuerpo": (
-            "La estación Qinling, el puesto antártico más moderno de China, logró esta semana un hito "
-            "en eficiencia energética: las energías renovables representan ya el 50 % de su suministro "
-            "eléctrico incluso durante los meses de oscuridad polar. El sistema combina paneles "
-            "fotovoltaicos de alta eficiencia, almacenamiento en baterías y aerogeneradores de pequeña "
-            "potencia diseñados para resistir temperaturas de -50 °C. El logro sirve de banco de pruebas "
-            "para tecnologías de energía verde en condiciones extremas."
-        ),
-        "fuente_label": "People's Daily — Estación Qinling logra avance en energía verde",
-        "fuente_url": "http://spanish.peopledaily.com.cn/n3/2026/0805/c92121-20485504.html",
-    },
-    {
-        "emoji": "🛰️",
-        "titulo": "El proyecto solar espacial chino: una central de 100.000 GWh al año en órbita geoestacionaria",
-        "cuerpo": (
-            "China avanza en el proyecto 'Tres Gargantas en el espacio', una central solar en órbita "
-            "geoestacionaria a 36.000 km de altitud que podría generar hasta 100.000 millones de kWh "
-            "anuales —similar al consumo total de países como los Países Bajos—. A diferencia de los "
-            "paneles terrestres, los satélites reciben luz solar las 24 horas del día, sin nubes ni "
-            "ciclos noche-día. El plan prevé lanzar el primer satélite de pruebas en 2028 y tener "
-            "una planta comercial plenamente operativa hacia 2050."
-        ),
-        "fuente_label": "El Español — China construye paneles solares en el espacio a 36.000 km",
-        "fuente_url": "https://www.elespanol.com/ciencia/20260413/china-cambia-estrategia-construye-paneles-solares-espacio-kilometros-trabajan-horas-dia/1003744201225_0.html",
-    },
-    {
-        "emoji": "💊",
-        "titulo": "China firma acuerdos de licencias biotecnológicas por 60.000 millones en el primer trimestre",
-        "cuerpo": (
-            "Mientras el mundo miraba a DeepSeek y los robots humanoides, China construía en silencio "
-            "una potencia farmacéutica global. Las empresas biotech chinas firmaron acuerdos de licencia "
-            "transfronteriza por un valor récord de 60.000 millones de dólares solo en el primer "
-            "trimestre de 2026. China ya no quiere fabricar medicamentos baratos: quiere cobrar por "
-            "las moléculas, las patentes y la investigación. El país ha captado el 39 % de los ensayos "
-            "clínicos globales, más que EE.UU. y la UE combinados."
-        ),
-        "fuente_label": "Gizmodo ES — China y su silenciosa exportación biotecnológica",
-        "fuente_url": "https://es.gizmodo.com/todos-miraban-a-deepseek-y-a-los-robots-humanoides-pero-china-estaba-preparando-una-exportacion-mucho-mas-silenciosa-ahora-sus-medicamentos-empiezan-a-llenar-las-carteras-de-las-farmaceuticas-occide-2000249516",
-    },
-    {
-        "emoji": "🏥",
-        "titulo": "IA y medicina tradicional china: los quioscos de diagnóstico inteligente llegan al metro",
-        "cuerpo": (
-            "China ha comenzado a desplegar quioscos de diagnóstico asistido por inteligencia artificial "
-            "en estaciones de metro y puntos urbanos, combinando biomedicina avanzada con la Medicina "
-            "Tradicional China (MTC). Los dispositivos miden presión arterial, frecuencia cardíaca, "
-            "saturación de oxígeno y temperatura; la IA aplica simultáneamente criterios de la MTC: "
-            "análisis facial, observación de lengua e interpretación digital del pulso. El objetivo "
-            "es detectar enfermedades crónicas de forma precoz, descargando presión de los centros "
-            "de salud primaria."
-        ),
-        "fuente_label": "Mundo Global — China: IA y Medicina Tradicional",
-        "fuente_url": "https://mundoglobal.org/china-avanza-hacia-un-modelo-de-salud-digital-que-une-ia-y-medicina-tradicional-china/",
+        "fuente_label": "Brasil 247 — China vence guerra comercial con avance de 17,3% en comercio exterior",
+        "fuente_url": "https://www.brasil247.com/global-times/china-tambem-derrota-trump-e-vence-guerra-comercial-com-avanco-de-173-no-comercio-exterior/",
     },
     {
         "emoji": "🌏",
-        "titulo": "China anuncia contramedidas frente a las restricciones tecnológicas de EE.UU.",
+        "titulo": "China acogerá la APEC 2026: cumbre del 60% del PIB mundial en Chengdu y Beijing",
         "cuerpo": (
-            "El 5 de agosto, el gobierno chino anunció 'contramedidas necesarias' en respuesta a las "
-            "últimas restricciones tecnológicas impuestas por Washington, que incluyeron robots "
-            "humanoides y cuadrúpedos chinos en su lista de importaciones prohibidas por 'seguridad "
-            "nacional'. Pekín respondió con controles a la exportación de drones de doble uso hacia "
-            "EE.UU. e inició una investigación de seguridad nacional sobre equipos de imagen de "
-            "oficina importados. Analistas señalan que China mantiene ventajas estructurales en "
-            "fabricación que limitan la eficacia de estas sanciones."
+            "China es el anfitrion de la APEC 2026, la cumbre anual que reune a las 21 economias de "
+            "la cuenca del Pacifico, responsables del 60 % del PIB mundial y el 47 % del comercio "
+            "global. Chengdu acogera la Semana Digital de la APEC y otros eventos previos, mientras "
+            "que la cumbre de lideres tendra lugar en noviembre. El evento es una oportunidad para que "
+            "China afiance su liderazgo economico regional y mundial, especialmente en economia "
+            "digital, energias limpias e inteligencia artificial."
         ),
-        "fuente_label": "Cubadebate — China anuncia contramedidas ante restricciones tecnológicas de EE.UU.",
-        "fuente_url": "http://www.cubadebate.cu/noticias/2026/08/05/china-anuncia-contramedidas-necesarias-ante-restricciones-tecnologicas-de-estados-unidos/",
+        "fuente_label": "Wikipedia — APEC China 2026",
+        "fuente_url": "https://en.wikipedia.org/wiki/APEC_China_2026",
+    },
+    {
+        "emoji": "⚡",
+        "titulo": "China supera el 40% de electricidad renovable — el carbon cae del 50% por primera vez",
+        "cuerpo": (
+            "En el primer semestre de 2026, la generacion electrica de fuentes renovables en China "
+            "supero por primera vez la barrera del 40 % (41,2 %), mientras la participacion del carbon "
+            "cayo por debajo del 50 % por primera vez en un semestre completo. China instalo 117 GW de "
+            "nueva capacidad renovable en esos seis meses —el 73,9 % de toda la nueva capacidad "
+            "instalada—. Ya hay 24 plantas de energia solar de espejos (termosolar) en operacion, con "
+            "otras 26 en construccion que suman 3,2 GW adicionales. El objetivo del gobierno es que "
+            "el 50 % de la electricidad proceda de fuentes no fosiles en 2030."
+        ),
+        "fuente_label": "Energías Renovables — China supera por primera vez el 40% de generación eléctrica renovable",
+        "fuente_url": "https://www.energias-renovables.com/panorama/china-supera-por-primera-vez-el-40-20260803",
+    },
+    {
+        "emoji": "🛰️",
+        "titulo": "China planea construir la primera fabrica espacial: modulo inflable en la estacion Tiangong",
+        "cuerpo": (
+            "China trabaja en un modulo inflable de hasta dos metros de diametro para instalarlo en la "
+            "estacion espacial Tiangong, con el objetivo de aprovechar la microgravedad para fabricar "
+            "materiales avanzados y biofarmacos imposibles de producir en la Tierra. El modulo se "
+            "lanzaria plegado y se expandiria en orbita. En paralelo, China desafia a la NASA 23 anos "
+            "despues de su primer viaje espacial: ya opera una estacion permanente, ha traido muestras "
+            "de la cara oculta de la Luna y proyecta un alunizaje con astronautas antes de 2030."
+        ),
+        "fuente_label": "El Español — China busca construir fábrica en el espacio con módulo inflable",
+        "fuente_url": "https://www.elespanol.com/ciencia/20260730/china-cambia-normas-busca-construir-fabrica-espacio-modulo-metros-diametro-kw/1003744337933_0.html",
+    },
+    {
+        "emoji": "🚄",
+        "titulo": "Air China inaugura vuelo diario Beijing-Ulan Bator con avion de fabricacion nacional",
+        "cuerpo": (
+            "A partir del 12 de agosto de 2026, Air China operara un vuelo diario de ida y vuelta "
+            "entre Beijing y Ulan Bator (Mongolia) con un avion troncal de fabricacion nacional. El "
+            "hito consolida la expansion de la aeronautica comercial china y la llegada del avion "
+            "nacional a rutas internacionales regulares. En el frente ferroviario, China continua el "
+            "despliegue de su red de trenes Maglev de alta velocidad (600-1.000 km/h), con el objetivo "
+            "de conectar megaciudades como Beijing y Shanghai en apenas hora y media, y en 2026 entra "
+            "en servicio el primer tren de pasajeros impulsado por hidrogeno a 250 km/h."
+        ),
+        "fuente_label": "Xinhua en español — Innovación tecnológica en China 2026",
+        "fuente_url": "https://spanish.news.cn/20260312/609871a2816b42efaf0f7d9ac3b5ff7a/c.html",
+    },
+    {
+        "emoji": "🌍",
+        "titulo": "China y Africa celebran 70 anos de relaciones diplomaticas con nuevos acuerdos de modernizacion",
+        "cuerpo": (
+            "2026 marca el 70 aniversario del establecimiento de relaciones diplomaticas entre China "
+            "y los paises africanos. En este marco, China impulsara la Iniciativa de Cooperacion para "
+            "la Modernizacion en Africa, que incluye transferencia tecnologica, financiacion de "
+            "infraestructuras limpias y formacion de talento local. Ademas, se acelera la negociacion "
+            "de un acuerdo de asociacion economica entre China y el bloque africano. Este 2026, "
+            "Xi Jinping ha recibido en Beijing a los lideres de EE.UU., Rusia y las principales "
+            "potencias europeas, consolidando una agenda diplomatica activa."
+        ),
+        "fuente_label": "Observatorio Política China — Resumen de Política Exterior",
+        "fuente_url": "https://www.politica-china.org/resumen-de-politica-exterior-4/",
     },
 ]
 
@@ -285,7 +240,7 @@ def build_blocks():
 
 
 def create_notion_page():
-    title = "China Al Dia — Semana 28 Jul - 6 Ago 2026"
+    title = "China Al Dia — Semana 4-11 Ago 2026"
     payload = {
         "parent": {"type": "page_id", "page_id": PARENT_PAGE_ID},
         "icon": {"type": "emoji", "emoji": "🇨🇳"},
