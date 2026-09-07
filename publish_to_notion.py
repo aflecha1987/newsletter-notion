@@ -265,6 +265,166 @@ NOTICIAS = [
     },
 ]
 
+# --- Semana 1-7 Sep 2026 ---
+NOTICIAS = [
+    {
+        "emoji": "🤖",
+        "titulo": "La IA china crea una 'zona de muerte' para los modelos de EE.UU.: Alibaba, DeepSeek y Kimi lideran la avalancha",
+        "cuerpo": (
+            "Los laboratorios de IA chinos protagonizan uno de los avances mas vertiginosos recientes. "
+            "Alibaba lanzo Qwen 3.8-Max (2,4 billones de parametros), que iguala a los mejores modelos "
+            "de Anthropic. DeepSeek presento V4 Flash, a menos de un punto del GPT-5 pero un 40 % mas "
+            "barato por tarea. Moonshot AI lanzo Kimi K3 (2,8 billones de parametros, codigo abierto) "
+            "para tareas autonomas de ingenieria. Analistas describen la situacion como una 'zona de "
+            "muerte' para proveedores sin tecnologia de frontera o precios disruptivos."
+        ),
+        "fuente_label": "The Register — China turns up the heat with open model blitz",
+        "fuente_url": "https://www.theregister.com/ai-and-ml/2026/08/03/china-turns-up-the-heat-with-open-model-blitz-as-us-model-makers-panic/5282526",
+    },
+    {
+        "emoji": "📡",
+        "titulo": "China lanza un plan trienal para llevar la IA a toda la red de telecomunicaciones",
+        "cuerpo": (
+            "El Ministerio de Industria y Tecnologia de la Informacion (MIIT) publico un plan de tres "
+            "anios (2026-2028) para integrar la IA con el sector de telecomunicaciones. El objetivo es "
+            "que las redes alcancen una 'etapa inicial de inteligencia autonoma de alto nivel' en 2028, "
+            "con aplicaciones en optimizacion de red en tiempo real, deteccion de ciberataques y gestion "
+            "de espectro. El plan tambien preve fondos para formar 50.000 ingenieros especializados."
+        ),
+        "fuente_label": "Gobierno de China — Plan trienal IA y telecomunicaciones",
+        "fuente_url": "https://english.www.gov.cn/news/202606/10/content_WS6a296017c6d00ca5f9a0b876.html",
+    },
+    {
+        "emoji": "🐕",
+        "titulo": "Zhiyuan crea el primer robot perro guia con patas y ruedas para personas con discapacidad visual",
+        "cuerpo": (
+            "El Instituto de Investigacion Zhiyuan de Hangzhou presento un robot perro guia hibrido que "
+            "combina ruedas para desplazamientos rapidos en suelos lisos y patas articuladas para subir "
+            "escaleras. Integra vision por computador, LiDAR y un modelo de lenguaje para responder "
+            "preguntas en tiempo real. Es el primer robot guia capaz de operar en entornos mixtos sin "
+            "intervencion humana. Se preve una fase piloto en ciudades chinas antes de finales de 2026."
+        ),
+        "fuente_label": "South China Morning Post — Robot guide dog Zhiyuan",
+        "fuente_url": "https://www.scmp.com/tech",
+    },
+    {
+        "emoji": "💾",
+        "titulo": "SMIC alcanza la densidad de transistores de TSMC N6 con tecnologia propia para el Kirin 9030 de Huawei",
+        "cuerpo": (
+            "SMIC confirmo que su nodo N+3, usado para fabricar el SoC Kirin 9030 de Huawei, alcanzo "
+            "113,4 MTr/mm2 — ligeramente superior a los 107,7 MTr/mm2 del nodo N6 de TSMC — logrado "
+            "sin litografia EUV y pese a las sanciones de EE.UU. Ademas, SMIC inicio pruebas piloto "
+            "de 5 nm con objetivo de produccion en masa en 2027. El beneficio neto en Q2 2026 se "
+            "triplico a 479 M USD, casi el doble de las estimaciones."
+        ),
+        "fuente_label": "Xataka — SMIC y la tecnologia de chips avanzada de China",
+        "fuente_url": "https://www.xataka.com/empresas-y-economia/smic-tiene-lista-tecnologia-fabricacion-chips-avanzada-china-que-ha-conseguido-a-que-precio",
+    },
+    {
+        "emoji": "🔬",
+        "titulo": "China empieza a producir sus propias maquinas de litografia DUV por inmersion",
+        "cuerpo": (
+            "Un fabricante estatal en Shanghai ha comenzado a producir maquinas de litografia DUV por "
+            "inmersion — esenciales para chips de entre 28 y 5 nm — con primeras entregas a SMIC, "
+            "Hua Hong y ChangXin Memory Technologies. Es el cierre del ultimo eslabon de la cadena "
+            "autonoma de semiconductores china, ya que ASML tenia prohibido exportar equipos DUV a "
+            "China desde 2023."
+        ),
+        "fuente_label": "Emol — China y las maquinas DUV de semiconductores",
+        "fuente_url": "https://www.emol.com/noticias/Tecnologia/2026/07/28/1206921/china-maquinas-duv-semiconductores-microchips.html",
+    },
+    {
+        "emoji": "🚗",
+        "titulo": "Los coches electricos dominan el mercado chino con penetracion record del 62,9 % y el petroleo cae un 16 %",
+        "cuerpo": (
+            "Los NEV alcanzaron el 62,9 % de penetracion de mercado en mayo con 950.000 unidades vendidas. "
+            "Las exportaciones de VE fueron 350.000 unidades en marzo (+140 % interanual). Lo mas llamativo: "
+            "el transporte chino consumio un 16 % menos de petroleo en Q2 2026 pese al aumento de "
+            "desplazamientos. China fabrica ya el 70 % de los vehiculos electricos del mundo y el "
+            "85 % de las celdas de bateria."
+        ),
+        "fuente_label": "Diariomotor — China reduce consumo de petroleo en transporte",
+        "fuente_url": "https://www.diariomotor.com/noticia/china-reduce-consumo-petroleo-semestre-2026/",
+    },
+    {
+        "emoji": "☀️",
+        "titulo": "La capacidad renovable de China supera 1.400 GW: mas solar instalada que todo el resto del mundo junto",
+        "cuerpo": (
+            "China cerro el Q1 2026 con 1.400 GW de capacidad renovable: 750 GW solar, 500 GW eolica, "
+            "425 GW hidraulica y 80 GW de almacenamiento en baterias. Es la primera vez que un solo "
+            "pais instala en un anio mas energia renovable que la capacidad total de generacion de Francia. "
+            "Las baterias de estado solido de BYD, Xpeng y CATL se acercan a produccion comercial en masa."
+        ),
+        "fuente_label": "Earth Energy Log — China renewable dominance 2026",
+        "fuente_url": "https://earthenergylog.com/articles/china-renewable-dominance-2026",
+    },
+    {
+        "emoji": "🏪",
+        "titulo": "La 26.a Feria Internacional de Xiamen arranca esta semana con delegaciones de 123 paises",
+        "cuerpo": (
+            "Del 8 al 11 de septiembre, Xiamen acoge la 26.a Feria Internacional de Inversion y Comercio "
+            "de China, la mayor plataforma de negocios del pais. Participan delegaciones de 123 paises "
+            "y regiones con 60 pabellones nacionales. Los focos son la transicion energetica, la "
+            "tecnologia digital, el e-commerce transfronterizo y la economia azul. La feria coincide "
+            "con la presidencia china del APEC, lo que le da una dimension diplomatica inusual."
+        ),
+        "fuente_label": "Observatorio Colombia-China — Diversificacion comercial agosto 2026",
+        "fuente_url": "https://observatoriocolombiachina.com/china-refuerza-la-diversificacion-comercial-mientras-aumentan-las-presiones-regulatorias-externas-22-al-28-de-agosto-de-2026/",
+    },
+    {
+        "emoji": "🌏",
+        "titulo": "China preside el APEC 2026 y empuja el mayor acuerdo de libre comercio de la historia en Asia-Pacifico",
+        "cuerpo": (
+            "China asumio la presidencia del APEC 2026 con el objetivo central de impulsar el Area de "
+            "Libre Comercio de Asia-Pacifico (FTAAP), que agruparia a los 21 miembros del foro "
+            "(62 % del PIB mundial, 48 % del comercio global) en un acuerdo integral. El ministro "
+            "Wang Yi presento en Guangzhou una hoja de ruta que articula RCEP y CPTPP como bloques "
+            "de construccion hacia el FTAAP."
+        ),
+        "fuente_label": "Empresaexterior — China y la presidencia APEC 2026",
+        "fuente_url": "https://empresaexterior.com/art/101322/china-asume-la-presidencia-de-apec-2026-con-el-objetivo-de-impulsar-el-area-de-libre-comercio-de-asia-pacifico-ftaap",
+    },
+    {
+        "emoji": "🤝",
+        "titulo": "Xi Jinping y Trump se aproximan a una nueva cumbre en septiembre mientras estabilizan el comercio bilateral",
+        "cuerpo": (
+            "Fuentes diplomaticas confirman que China y EE.UU. ultiman una reunion entre Xi Jinping y "
+            "Trump para septiembre de 2026. Ambas partes anunciaron un acuerdo comercial preliminar "
+            "que incluye reduccion de aranceles sobre productos manufacturados a cambio de compromisos "
+            "chinos en acceso al mercado financiero. Seria el primer contacto directo desde el inicio "
+            "del segundo mandato de Trump."
+        ),
+        "fuente_label": "Sandler, Travis & Rosenberg — EE.UU. y China anuncian acuerdo comercial",
+        "fuente_url": "https://www.strtrade.com/trade-news-resources/str-trade-report/trade-report-en-espanol/eeuu-y-china-anuncian-acuerdo-comercial-y-economico",
+    },
+    {
+        "emoji": "🌕",
+        "titulo": "China avanza en Chang'e-7: busqueda de agua y recursos en el polo sur de la Luna",
+        "cuerpo": (
+            "La mision Chang'e-7 combinara orbitador, aterrizador, rover y un mini-dron para volar sobre "
+            "crateres de sombra permanente en el polo sur lunar en busca de hielo de agua. Los datos "
+            "serviran para planificar la Estacion Internacional de Investigacion Lunar (ILRS) que China "
+            "lidera con Rusia y paises en desarrollo. Es el paso natural tras el historico retorno de "
+            "muestras del lado oculto de la Luna por Chang'e-6 en 2024."
+        ),
+        "fuente_label": "Okdiario — China en la Luna 2026",
+        "fuente_url": "https://okdiario.com/ciencia/china-luna-2026-misiones-logros-objetivos-16568199",
+    },
+    {
+        "emoji": "🚀",
+        "titulo": "Dos anios de ciencia en la Tiangong: China abre su estacion espacial a cientificos del Sur Global",
+        "cuerpo": (
+            "La estacion espacial Tiangong cumplio dos anios de operacion continua con resultados en "
+            "materiales para semiconductores de proxima generacion y cultivo de cristales proteicos "
+            "para farmacos. Acoge actualmente seis astronautas — el maximo historico — y abrio una "
+            "convocatoria internacional para investigadores de paises en desarrollo que deseen llevar "
+            "experimentos a bordo en 2027."
+        ),
+        "fuente_label": "SWI Swissinfo — Tiangong dos anios de avances cientificos",
+        "fuente_url": "https://www.swissinfo.ch/spa/china-destaca-los-avances-cient%C3%ADficos-de-su-estaci%C3%B3n-espacial-tras-dos-a%C3%B1os-de-operaci%C3%B3n/88655193",
+    },
+]
+
 
 def build_blocks():
     today = date.today().strftime("%d de %B de %Y")
@@ -285,7 +445,7 @@ def build_blocks():
 
 
 def create_notion_page():
-    title = "China Al Dia — Semana 28 Jul - 6 Ago 2026"
+    title = "China Al Dia — Semana 1-7 Sep 2026"
     payload = {
         "parent": {"type": "page_id", "page_id": PARENT_PAGE_ID},
         "icon": {"type": "emoji", "emoji": "🇨🇳"},
